@@ -1,0 +1,47 @@
+﻿@model DictionaryModel
+
+@* We need to import this namespace as otherwise our custom IDictionary<string, string> HtmlHelper overload would not be called *@
+@using AspNetMvcDictionarySerialization.Models
+
+@{
+    ViewBag.Title = "IDictionary<string, string> serialization as hidden field";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@if (this.IsPost)
+{
+    <p>The values below were de-serialized from the submitted form.</p>
+}
+else
+{
+    <p>Click on submit to submit the form and see if the dictionary is correctly de-serialized.</p>
+}
+
+<table>
+    <thead>
+        <tr>
+            <th>Key</th>
+            <th>Value</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var keyValuePair in Model.Dictionary)
+        {
+            <tr>
+                <td>@keyValuePair.Key</td>
+                <td>@keyValuePair.Value</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@using (Html.BeginForm())
+{
+    // Here we will be serializing the dictionary using our custom HtmlHelper. By correctly serializing the
+    // dictionary into the correct format (see http://www.hanselman.com/blog/ASPNETWireFormatForModelBindingToArraysListsCollectionsDictionaries.aspx)
+    // the default model binder will be able to correct de-serialize the submitted dictionary
+    @Html.HiddenFor(m => m.Dictionary)
+    
+    <input type="submit" value="Submit" />
+}

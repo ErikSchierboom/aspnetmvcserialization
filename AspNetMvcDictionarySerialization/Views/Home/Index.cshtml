@@ -1,0 +1,29 @@
+﻿@model AspNetMvcDictionarySerialization.Models.DictionaryModel
+
+@* We need to import this namespace as otherwise our custom IDictionary<string, string> HtmlHelper overload would not be called *@
+@using AspNetMvcDictionarySerialization.Models
+
+@{
+    ViewBag.Title = "IDictionary<string, string> serialization";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@if (this.IsPost)
+{
+    <p>The values below were de-serialized from the submitted form.</p>
+}
+else
+{
+    <p>Click on submit to submit the form and see if the dictionary is correctly de-serialized.</p>
+}
+
+@using (Html.BeginForm())
+{
+    // Here we will be serializing the dictionary using our custom HtmlHelper. By correctly serializing the
+    // dictionary into the correct format (see http://www.hanselman.com/blog/ASPNETWireFormatForModelBindingToArraysListsCollectionsDictionaries.aspx)
+    // the default model binder will be able to correct de-serialize the submitted dictionary
+    @Html.Editor("Dictionary", Model.Dictionary)
+    
+    <input type="submit" value="Submit" />
+}

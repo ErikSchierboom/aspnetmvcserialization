@@ -1,4 +1,63 @@
-aspnetmvcdictionaryserialization
-================================
+# ASP.NET MVC `IDictionary<string,string>` serialization
 
-Serializing an IDictionary&lt;string,string> in ASP.NET MVC is not supported by default. This project contains extensions to the `HtmlHelper` class that do allow `IDictionary&lt;string,string>` objects to be correctly serialized.
+## Introduction
+
+Serializing and de-serializing an `IDictionary<string,string>` instance in ASP.NET MVC is not supported by default. The correct format in which a dictionary needs to be serialized is very specific. Say we have the following dictionary:
+
+    var dict = new Dictionary<string, string>
+                   {
+                       { "Id", "1" },
+                       { "Title", "Se7en" },
+                       { "Director", "David Fincher" },
+                   };
+
+If want the model minder to be able to deserialize this dictionary after being posted from a form, we need to input the following fields in the form:
+
+    <input type="text" name="dict[0].Key" value="Id" />
+    <input type="text" name="dict[0].Value" value="1" />
+    <input type="text" name="dict[1].Key" value="Title" />
+    <input type="text" name="dict[1].Value" value="Se7en" />
+    <input type="text" name="dict[2].Key" value="Director" />
+    <input type="text" name="dict[2].Value" value="David Fincher" />
+
+One can clear see that each element in the dictionary has two input fields: one for the key and one for the value. If we include the above HTML in our form, the default model binder will be able to correctly deserialize it in an action method:
+
+    [HttpPost]
+    public ActionResult HandlePost(Dictionary<string, string> dict)
+    {
+        // dict will have the correct information here
+    }
+
+## Implementation
+
+This project adds extensions to the `HtmlHelper` class that allows `IDictionary&lt;string,string>` instances to be correctly serialized. The extension methods are defined in the [HtmlHelperExtensions class](AspNetMvcDictionarySerialization/Models/HtmlHelperExtensions.cs). The methods defined all work on `IDictionary<string,string>` instances and contain all the overloads the default `HtmlHelper` also defines. 
+
+The functionality is implemented by simply iterating over all elements in the dictionary and outputting one input field for the key of each item and one input field for the value of the item.
+
+## Usage 
+Using the extensions is simple as they follow the regular usage pattern of the ASP.NET MVC HTML helpers. First you need to make sure your template has included the namespace in which the extension methods are located. Then you can simply use any of the `Editor`/`EditorFor`/`Hidden`/`HiddenFor` overloads.
+
+    @Html.Editor("dict", dict)
+    
+This will output the following HTML (assuming the `dict` variable has the values we defined earlier):
+
+    <input type="text" name="dict[0].Key" value="Id" />
+    <input type="text" name="dict[0].Value" value="1" />
+    <input type="text" name="dict[1].Key" value="Title" />
+    <input type="text" name="dict[1].Value" value="Se7en" />
+    <input type="text" name="dict[2].Key" value="Director" />
+    <input type="text" name="dict[2].Value" value="David Fincher" />
+
+    @Html.Hidden("dict", dict)
+
+This will output the following HTML (assuming the `dict` variable has the values we defined earlier):
+
+    <input type="hidden" name="dict[0].Key" value="Id" />
+    <input type="hidden" name="dict[0].Value" value="1" />
+    <input type="hidden" name="dict[1].Key" value="Title" />
+    <input type="hidden" name="dict[1].Value" value="Se7en" />
+    <input type="hidden" name="dict[2].Key" value="Director" />
+    <input type="hidden" name="dict[2].Value" value="David Fincher" />
+
+## License
+[Apache License 2.0](LICENSE.md)
