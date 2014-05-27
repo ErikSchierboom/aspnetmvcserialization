@@ -1,5 +1,7 @@
 # ASP.NET MVC IDictionary&lt;string,string&gt; serialization
 
+[![Build status](https://ci.appveyor.com/api/projects/status/d1e0slk8udkym49k)](https://ci.appveyor.com/project/ErikSchierboom/aspnetmvcdictionaryserialization)
+
 ## Introduction
 
 Serializing and de-serializing an `IDictionary<string,string>` instance in ASP.NET MVC is not supported by default. The correct format in which a dictionary needs to be serialized is very specific. Say we have the following dictionary:
