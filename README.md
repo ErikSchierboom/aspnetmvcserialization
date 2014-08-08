@@ -38,7 +38,7 @@ public ActionResult HandlePost(Dictionary<string, string> dict)
 
 ## Implementation
 
-This project adds extensions to the `HtmlHelper` class that allows `IDictionary&lt;string,string>` instances to be correctly serialized. The extension methods are defined in the [HtmlHelperExtensions class](AspNetMvcDictionarySerialization/Models/HtmlHelperExtensions.cs). The methods defined all work on `IDictionary<string,string>` instances and contain all the overloads the default `HtmlHelper` also defines. 
+This project adds extensions to the `HtmlHelper` class that allows `IDictionary<string,string>` instances to be correctly serialized. The extension methods are defined in the [HtmlHelperExtensions class](AspNetMvcDictionarySerialization/Models/HtmlHelperExtensions.cs). The methods defined all work on `IDictionary<string,string>` instances and contain all the overloads the default `HtmlHelper` also defines. 
 
 The functionality is implemented by simply iterating over all elements in the dictionary and outputting one input field for the key of each item and one input field for the value of the item.
 
