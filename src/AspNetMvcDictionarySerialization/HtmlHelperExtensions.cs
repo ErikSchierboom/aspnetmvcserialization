@@ -1,4 +1,4 @@
-﻿namespace AspNetMvcDictionarySerialization.Models
+﻿namespace AspNetMvcDictionarySerialization
 {
     using System;
     using System.Collections.Generic;
@@ -7,7 +7,7 @@
     using System.Web.Mvc;
 
     /// <summary>
-    /// Extensions to the <see cref="HtmlHelper"/> class. These extensions all work on IDictionary string, string instances.
+    /// Extensions to the <see cref="HtmlHelper"/> class. These extensions all work on IDictionary&lt;string, string&gt; instances.
     /// </summary>
     public static class HtmlHelperExtensions
     {
@@ -104,7 +104,7 @@
             var fullName = htmlHelper.ViewContext.ViewData.TemplateInfo.GetFullHtmlFieldName(expression);
             if (String.IsNullOrEmpty(fullName))
             {
-                throw new ArgumentException("Field name is null or empty.", "name");
+                throw new ArgumentException("Field name is null or empty.");
             }
 
             var strings = new List<string>(value.Count * 2);
@@ -138,9 +138,9 @@
             tagBuilder.MergeAttribute("value", val);
 
             tagBuilder.GenerateId(fullName);
-
-            // If there are any errors for the named field, we add the css attribute.
+            
             ModelState modelState;
+
             if (htmlHelper.ViewData.ModelState.TryGetValue(fullName, out modelState))
             {
                 if (modelState.Errors.Count > 0)
@@ -149,7 +149,10 @@
                 }
             }
 
-            tagBuilder.MergeAttributes(htmlHelper.GetUnobtrusiveValidationAttributes(expression, metadata));
+            if (metadata != null)
+            {
+                tagBuilder.MergeAttributes(htmlHelper.GetUnobtrusiveValidationAttributes(expression, metadata));    
+            }
 
             return tagBuilder.ToString(TagRenderMode.SelfClosing);
         }

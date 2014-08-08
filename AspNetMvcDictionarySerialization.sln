@@ -1,12 +1,19 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetMvcDictionarySerialization", "AspNetMvcDictionarySerialization\AspNetMvcDictionarySerialization.csproj", "{61F53904-F9EA-467F-9914-019E3D982E65}"
-EndProject
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B443AD8D-A26C-4694-85A2-45B671121F44}"
 	ProjectSection(SolutionItems) = preProject
+		src\AspNetMvcDictionarySerialization\AspNetMvcDictionarySerialization.nuspec = src\AspNetMvcDictionarySerialization\AspNetMvcDictionarySerialization.nuspec
 		README.md = README.md
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetMvcDictionarySerialization.Tests", "tests\AspNetMvcDictionarySerialization.Tests\AspNetMvcDictionarySerialization.Tests.csproj", "{E3D16D3C-5052-46BC-9ADA-C15D57D57FB7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetMvcDictionarySerialization.Website", "samples\AspNetMvcDictionarySerialization.Website\AspNetMvcDictionarySerialization.Website.csproj", "{61F53904-F9EA-467F-9914-019E3D982E65}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetMvcDictionarySerialization", "src\AspNetMvcDictionarySerialization\AspNetMvcDictionarySerialization.csproj", "{16566763-6FC8-426D-9666-300CA06FDB7C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -14,10 +21,18 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E3D16D3C-5052-46BC-9ADA-C15D57D57FB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3D16D3C-5052-46BC-9ADA-C15D57D57FB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3D16D3C-5052-46BC-9ADA-C15D57D57FB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3D16D3C-5052-46BC-9ADA-C15D57D57FB7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{61F53904-F9EA-467F-9914-019E3D982E65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{61F53904-F9EA-467F-9914-019E3D982E65}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{61F53904-F9EA-467F-9914-019E3D982E65}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{61F53904-F9EA-467F-9914-019E3D982E65}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16566763-6FC8-426D-9666-300CA06FDB7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16566763-6FC8-426D-9666-300CA06FDB7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16566763-6FC8-426D-9666-300CA06FDB7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16566763-6FC8-426D-9666-300CA06FDB7C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

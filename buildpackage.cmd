@@ -1,0 +1,1 @@
+".nuget\nuget.exe" pack -Prop Configuration=Release ".\src\AspNetMvcDictionarySerialization\AspNetMvcDictionarySerialization.csproj" -Symbols

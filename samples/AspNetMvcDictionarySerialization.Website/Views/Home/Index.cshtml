@@ -1,7 +1,7 @@
-﻿@model AspNetMvcDictionarySerialization.Models.DictionaryModel
+﻿@model AspNetMvcDictionarySerialization.Website.Models.DictionaryModel
+@using AspNetMvcDictionarySerialization;
 
 @* We need to import this namespace as otherwise our custom IDictionary<string, string> HtmlHelper overload would not be called *@
-@using AspNetMvcDictionarySerialization.Models
 
 @{
     ViewBag.Title = "IDictionary<string, string> serialization";
@@ -9,7 +9,7 @@
 
 <h2>@ViewBag.Title</h2>
 
-@if (this.IsPost)
+@if (IsPost)
 {
     <p>The values below were de-serialized from the submitted form.</p>
 }

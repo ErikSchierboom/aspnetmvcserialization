@@ -43,7 +43,7 @@ This project adds extensions to the `HtmlHelper` class that allows `IDictionary<
 The functionality is implemented by simply iterating over all elements in the dictionary and outputting one input field for the key of each item and one input field for the value of the item.
 
 ## Usage 
-Using the extensions is simple as they follow the regular usage pattern of the ASP.NET MVC HTML helpers. First you need to make sure your template has included the namespace in which the extension methods are located. Then you can simply use any of the `Editor`/`EditorFor`/`Hidden`/`HiddenFor` overloads.
+Using the extensions is simple as they follow the regular usage pattern of the ASP.NET MVC HTML helpers. First you need to make sure your template has included the namespace in which the extension methods are located (which is `AspNetMvcDictionarySerialization`). Then you can simply use any of the `Editor`/`EditorFor`/`Hidden`/`HiddenFor` overloads.
 
 ```html
 @Html.Editor("dict", dict)
@@ -72,6 +72,13 @@ This will output the following HTML (assuming the `dict` variable has the values
 <input type="hidden" name="dict[2].Key" value="Director" />
 <input type="hidden" name="dict[2].Value" value="David Fincher" />
 ```
+
+## Get it on NuGet!
+The library is available on NuGet package available. You can install it using the following command:
+
+    Install-Package MvcDictionarySerialization
+
+Note: remember that you need to include the `AspNetMvcDictionarySerialization` namespace in your views for the custom serialization code to be used.
 
 ## License
 [Apache License 2.0](LICENSE.md)

@@ -1,4 +1,4 @@
-﻿namespace AspNetMvcDictionarySerialization
+﻿namespace AspNetMvcDictionarySerialization.Website
 {
     using System.Web;
     using System.Web.Mvc;

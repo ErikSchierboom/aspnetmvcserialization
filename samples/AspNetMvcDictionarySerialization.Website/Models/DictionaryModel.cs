@@ -1,4 +1,4 @@
-﻿namespace AspNetMvcDictionarySerialization.Models
+﻿namespace AspNetMvcDictionarySerialization.Website.Models
 {
     using System.Collections.Generic;
 
