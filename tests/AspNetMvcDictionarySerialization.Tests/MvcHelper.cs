@@ -5,7 +5,7 @@ namespace AspNetMvcDictionarySerialization.Tests
 
     using Moq;
 
-    public static class MvcHelper
+    internal static class MvcHelper
     {
         public static HtmlHelper<TModel> GetHtmlHelper<TModel>(TModel inputDictionary)
         {
