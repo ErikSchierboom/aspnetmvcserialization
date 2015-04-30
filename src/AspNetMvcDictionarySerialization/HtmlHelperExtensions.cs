@@ -137,7 +137,7 @@
             tagBuilder.MergeAttribute("name", string.Format("{0}[{1}].{2}", fullName, index, fieldType), true);
             tagBuilder.MergeAttribute("value", val);
 
-            tagBuilder.GenerateId(fullName);
+            tagBuilder.GenerateId(string.Format("{0}_{1}_{2}", fullName, index, fieldType));
             
             ModelState modelState;
 
