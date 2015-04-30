@@ -1,5 +1,6 @@
 ﻿namespace AspNetMvcDictionarySerialization.Tests
 {
+    using System;
     using System.Collections.Generic;
 
     using Xunit;
@@ -17,12 +18,32 @@
             var html = htmlHelper.Editor("dict", inputDictionary);
 
             // Assert
-            Assert.Equal(@"<input id=""dict"" name=""dict[0].Key"" type=""text"" value=""Id"" />" + "\n" +
+            Assert.Equal(@"<input id=""dict"" name=""dict[0].Key"" type=""hidden"" value=""Id"" />" + "\n" +
                          @"<input id=""dict"" name=""dict[0].Value"" type=""text"" value=""1"" />" + "\n" +
-                         @"<input id=""dict"" name=""dict[1].Key"" type=""text"" value=""Title"" />" + "\n" +
+                         @"<input id=""dict"" name=""dict[1].Key"" type=""hidden"" value=""Title"" />" + "\n" +
                          @"<input id=""dict"" name=""dict[1].Value"" type=""text"" value=""Se7en"" />" + "\n" +
-                         @"<input id=""dict"" name=""dict[2].Key"" type=""text"" value=""Director"" />" + "\n" +
+                         @"<input id=""dict"" name=""dict[2].Key"" type=""hidden"" value=""Director"" />" + "\n" +
                          @"<input id=""dict"" name=""dict[2].Value"" type=""text"" value=""David Fincher"" />",
+                         html.ToHtmlString());
+        }
+
+        [Fact]
+        public void EditorReturnsCorrectFormatForNonStringDictionary()
+        {
+            // Arrange
+            var inputDictionary = CreateNonStringDictionary();
+            var htmlHelper = MvcHelper.GetHtmlHelper(inputDictionary);
+
+            // Act
+            var html = htmlHelper.Editor("dict", inputDictionary);
+
+            // Assert
+            Assert.Equal(@"<input id=""dict"" name=""dict[0].Key"" type=""hidden"" value=""c13d2115-d8d1-4d85-ba66-41d1447f5067"" />" + "\n" +
+                         @"<input id=""dict"" name=""dict[0].Value"" type=""text"" value=""3"" />" + "\n" +
+                         @"<input id=""dict"" name=""dict[1].Key"" type=""hidden"" value=""728eef19-e2e6-46f7-853f-526f4bc2a88d"" />" + "\n" +
+                         @"<input id=""dict"" name=""dict[1].Value"" type=""text"" value=""11"" />" + "\n" +
+                         @"<input id=""dict"" name=""dict[2].Key"" type=""hidden"" value=""88de3b4f-6e9c-4b4b-a338-3f36b2ddad4a"" />" + "\n" +
+                         @"<input id=""dict"" name=""dict[2].Value"" type=""text"" value=""24"" />",
                          html.ToHtmlString());
         }
 
@@ -37,11 +58,11 @@
             var html = htmlHelper.Editor("dict", inputDictionary, new { @readonly = "readonly" });
 
             // Assert
-            Assert.Equal(@"<input id=""dict"" name=""dict[0].Key"" readonly=""readonly"" type=""text"" value=""Id"" />" + "\n" +
+            Assert.Equal(@"<input id=""dict"" name=""dict[0].Key"" type=""hidden"" value=""Id"" />" + "\n" +
                          @"<input id=""dict"" name=""dict[0].Value"" readonly=""readonly"" type=""text"" value=""1"" />" + "\n" +
-                         @"<input id=""dict"" name=""dict[1].Key"" readonly=""readonly"" type=""text"" value=""Title"" />" + "\n" +
+                         @"<input id=""dict"" name=""dict[1].Key"" type=""hidden"" value=""Title"" />" + "\n" +
                          @"<input id=""dict"" name=""dict[1].Value"" readonly=""readonly"" type=""text"" value=""Se7en"" />" + "\n" +
-                         @"<input id=""dict"" name=""dict[2].Key"" readonly=""readonly"" type=""text"" value=""Director"" />" + "\n" +
+                         @"<input id=""dict"" name=""dict[2].Key"" type=""hidden"" value=""Director"" />" + "\n" +
                          @"<input id=""dict"" name=""dict[2].Value"" readonly=""readonly"" type=""text"" value=""David Fincher"" />", 
                          html.ToHtmlString());
         }
@@ -57,11 +78,11 @@
             var html = htmlHelper.Editor("dict", inputDictionary, new Dictionary<string, object> { { "disabled", "disabled" } });
 
             // Assert
-            Assert.Equal(@"<input disabled=""disabled"" id=""dict"" name=""dict[0].Key"" type=""text"" value=""Id"" />" + "\n" +
+            Assert.Equal(@"<input id=""dict"" name=""dict[0].Key"" type=""hidden"" value=""Id"" />" + "\n" +
                          @"<input disabled=""disabled"" id=""dict"" name=""dict[0].Value"" type=""text"" value=""1"" />" + "\n" +
-                         @"<input disabled=""disabled"" id=""dict"" name=""dict[1].Key"" type=""text"" value=""Title"" />" + "\n" +
+                         @"<input id=""dict"" name=""dict[1].Key"" type=""hidden"" value=""Title"" />" + "\n" +
                          @"<input disabled=""disabled"" id=""dict"" name=""dict[1].Value"" type=""text"" value=""Se7en"" />" + "\n" +
-                         @"<input disabled=""disabled"" id=""dict"" name=""dict[2].Key"" type=""text"" value=""Director"" />" + "\n" +
+                         @"<input id=""dict"" name=""dict[2].Key"" type=""hidden"" value=""Director"" />" + "\n" +
                          @"<input disabled=""disabled"" id=""dict"" name=""dict[2].Value"" type=""text"" value=""David Fincher"" />", 
                          html.ToHtmlString());
         }
@@ -77,12 +98,32 @@
             var html = htmlHelper.EditorFor(m => m.Dict);
 
             // Assert
-            Assert.Equal(@"<input id=""Dict"" name=""Dict[0].Key"" type=""text"" value=""Id"" />" + "\n" +
+            Assert.Equal(@"<input id=""Dict"" name=""Dict[0].Key"" type=""hidden"" value=""Id"" />" + "\n" +
                          @"<input id=""Dict"" name=""Dict[0].Value"" type=""text"" value=""1"" />" + "\n" +
-                         @"<input id=""Dict"" name=""Dict[1].Key"" type=""text"" value=""Title"" />" + "\n" +
+                         @"<input id=""Dict"" name=""Dict[1].Key"" type=""hidden"" value=""Title"" />" + "\n" +
                          @"<input id=""Dict"" name=""Dict[1].Value"" type=""text"" value=""Se7en"" />" + "\n" +
-                         @"<input id=""Dict"" name=""Dict[2].Key"" type=""text"" value=""Director"" />" + "\n" +
+                         @"<input id=""Dict"" name=""Dict[2].Key"" type=""hidden"" value=""Director"" />" + "\n" +
                          @"<input id=""Dict"" name=""Dict[2].Value"" type=""text"" value=""David Fincher"" />", 
+                         html.ToHtmlString());
+        }
+
+        [Fact]
+        public void EditorForReturnsCorrectFormatForNonStringDictionary()
+        {
+            // Arrange
+            var dictionaryModel = CreateNonStringDictionaryModel();
+            var htmlHelper = MvcHelper.GetHtmlHelper(dictionaryModel);
+
+            // Act
+            var html = htmlHelper.EditorFor(m => m.Dict);
+
+            // Assert
+            Assert.Equal(@"<input id=""Dict"" name=""Dict[0].Key"" type=""hidden"" value=""c13d2115-d8d1-4d85-ba66-41d1447f5067"" />" + "\n" +
+                         @"<input id=""Dict"" name=""Dict[0].Value"" type=""text"" value=""3"" />" + "\n" +
+                         @"<input id=""Dict"" name=""Dict[1].Key"" type=""hidden"" value=""728eef19-e2e6-46f7-853f-526f4bc2a88d"" />" + "\n" +
+                         @"<input id=""Dict"" name=""Dict[1].Value"" type=""text"" value=""11"" />" + "\n" +
+                         @"<input id=""Dict"" name=""Dict[2].Key"" type=""hidden"" value=""88de3b4f-6e9c-4b4b-a338-3f36b2ddad4a"" />" + "\n" +
+                         @"<input id=""Dict"" name=""Dict[2].Value"" type=""text"" value=""24"" />",
                          html.ToHtmlString());
         }
 
@@ -97,11 +138,11 @@
             var html = htmlHelper.EditorFor(m => m.Dict, new { @readonly = "readonly" });
 
             // Assert
-            Assert.Equal(@"<input id=""Dict"" name=""Dict[0].Key"" readonly=""readonly"" type=""text"" value=""Id"" />" + "\n" +
+            Assert.Equal(@"<input id=""Dict"" name=""Dict[0].Key"" type=""hidden"" value=""Id"" />" + "\n" +
                          @"<input id=""Dict"" name=""Dict[0].Value"" readonly=""readonly"" type=""text"" value=""1"" />" + "\n" +
-                         @"<input id=""Dict"" name=""Dict[1].Key"" readonly=""readonly"" type=""text"" value=""Title"" />" + "\n" +
+                         @"<input id=""Dict"" name=""Dict[1].Key"" type=""hidden"" value=""Title"" />" + "\n" +
                          @"<input id=""Dict"" name=""Dict[1].Value"" readonly=""readonly"" type=""text"" value=""Se7en"" />" + "\n" +
-                         @"<input id=""Dict"" name=""Dict[2].Key"" readonly=""readonly"" type=""text"" value=""Director"" />" + "\n" +
+                         @"<input id=""Dict"" name=""Dict[2].Key"" type=""hidden"" value=""Director"" />" + "\n" +
                          @"<input id=""Dict"" name=""Dict[2].Value"" readonly=""readonly"" type=""text"" value=""David Fincher"" />", 
                          html.ToHtmlString());
         }
@@ -117,11 +158,11 @@
             var html = htmlHelper.EditorFor(m => m.Dict, new Dictionary<string, object> { { "disabled", "disabled" } });
 
             // Assert
-            Assert.Equal(@"<input disabled=""disabled"" id=""Dict"" name=""Dict[0].Key"" type=""text"" value=""Id"" />" + "\n" +
+            Assert.Equal(@"<input id=""Dict"" name=""Dict[0].Key"" type=""hidden"" value=""Id"" />" + "\n" +
                          @"<input disabled=""disabled"" id=""Dict"" name=""Dict[0].Value"" type=""text"" value=""1"" />" + "\n" +
-                         @"<input disabled=""disabled"" id=""Dict"" name=""Dict[1].Key"" type=""text"" value=""Title"" />" + "\n" +
+                         @"<input id=""Dict"" name=""Dict[1].Key"" type=""hidden"" value=""Title"" />" + "\n" +
                          @"<input disabled=""disabled"" id=""Dict"" name=""Dict[1].Value"" type=""text"" value=""Se7en"" />" + "\n" +
-                         @"<input disabled=""disabled"" id=""Dict"" name=""Dict[2].Key"" type=""text"" value=""Director"" />" + "\n" +
+                         @"<input id=""Dict"" name=""Dict[2].Key"" type=""hidden"" value=""Director"" />" + "\n" +
                          @"<input disabled=""disabled"" id=""Dict"" name=""Dict[2].Value"" type=""text"" value=""David Fincher"" />", 
                          html.ToHtmlString());
         }
@@ -147,6 +188,26 @@
         }
 
         [Fact]
+        public void HiddenReturnsCorrectFormatForNonStringDictionary()
+        {
+            // Arrange
+            var inputDictionary = CreateNonStringDictionary();
+            var htmlHelper = MvcHelper.GetHtmlHelper(inputDictionary);
+
+            // Act
+            var html = htmlHelper.Hidden("dict", inputDictionary);
+
+            // Assert
+            Assert.Equal(@"<input id=""dict"" name=""dict[0].Key"" type=""hidden"" value=""c13d2115-d8d1-4d85-ba66-41d1447f5067"" />" + "\n" +
+                         @"<input id=""dict"" name=""dict[0].Value"" type=""hidden"" value=""3"" />" + "\n" +
+                         @"<input id=""dict"" name=""dict[1].Key"" type=""hidden"" value=""728eef19-e2e6-46f7-853f-526f4bc2a88d"" />" + "\n" +
+                         @"<input id=""dict"" name=""dict[1].Value"" type=""hidden"" value=""11"" />" + "\n" +
+                         @"<input id=""dict"" name=""dict[2].Key"" type=""hidden"" value=""88de3b4f-6e9c-4b4b-a338-3f36b2ddad4a"" />" + "\n" +
+                         @"<input id=""dict"" name=""dict[2].Value"" type=""hidden"" value=""24"" />",
+                         html.ToHtmlString());
+        }
+
+        [Fact]
         public void HiddenUsesObjectSpecifiedHtmlAttributes()
         {
             // Arrange
@@ -157,11 +218,11 @@
             var html = htmlHelper.Hidden("dict", inputDictionary, new { @readonly = "readonly" });
 
             // Assert
-            Assert.Equal(@"<input id=""dict"" name=""dict[0].Key"" readonly=""readonly"" type=""hidden"" value=""Id"" />" + "\n" +
+            Assert.Equal(@"<input id=""dict"" name=""dict[0].Key"" type=""hidden"" value=""Id"" />" + "\n" +
                          @"<input id=""dict"" name=""dict[0].Value"" readonly=""readonly"" type=""hidden"" value=""1"" />" + "\n" +
-                         @"<input id=""dict"" name=""dict[1].Key"" readonly=""readonly"" type=""hidden"" value=""Title"" />" + "\n" +
+                         @"<input id=""dict"" name=""dict[1].Key"" type=""hidden"" value=""Title"" />" + "\n" +
                          @"<input id=""dict"" name=""dict[1].Value"" readonly=""readonly"" type=""hidden"" value=""Se7en"" />" + "\n" +
-                         @"<input id=""dict"" name=""dict[2].Key"" readonly=""readonly"" type=""hidden"" value=""Director"" />" + "\n" +
+                         @"<input id=""dict"" name=""dict[2].Key"" type=""hidden"" value=""Director"" />" + "\n" +
                          @"<input id=""dict"" name=""dict[2].Value"" readonly=""readonly"" type=""hidden"" value=""David Fincher"" />",
                          html.ToHtmlString());
         }
@@ -177,11 +238,11 @@
             var html = htmlHelper.Hidden("dict", inputDictionary, new Dictionary<string, object> { { "disabled", "disabled" } });
 
             // Assert
-            Assert.Equal(@"<input disabled=""disabled"" id=""dict"" name=""dict[0].Key"" type=""hidden"" value=""Id"" />" + "\n" +
+            Assert.Equal(@"<input id=""dict"" name=""dict[0].Key"" type=""hidden"" value=""Id"" />" + "\n" +
                          @"<input disabled=""disabled"" id=""dict"" name=""dict[0].Value"" type=""hidden"" value=""1"" />" + "\n" +
-                         @"<input disabled=""disabled"" id=""dict"" name=""dict[1].Key"" type=""hidden"" value=""Title"" />" + "\n" +
+                         @"<input id=""dict"" name=""dict[1].Key"" type=""hidden"" value=""Title"" />" + "\n" +
                          @"<input disabled=""disabled"" id=""dict"" name=""dict[1].Value"" type=""hidden"" value=""Se7en"" />" + "\n" +
-                         @"<input disabled=""disabled"" id=""dict"" name=""dict[2].Key"" type=""hidden"" value=""Director"" />" + "\n" +
+                         @"<input id=""dict"" name=""dict[2].Key"" type=""hidden"" value=""Director"" />" + "\n" +
                          @"<input disabled=""disabled"" id=""dict"" name=""dict[2].Value"" type=""hidden"" value=""David Fincher"" />", 
                          html.ToHtmlString());
         }
@@ -207,6 +268,26 @@
         }
 
         [Fact]
+        public void HiddenForReturnsCorrectFormatForNonStringDictionary()
+        {
+            // Arrange
+            var dictionaryModel = CreateNonStringDictionaryModel();
+            var htmlHelper = MvcHelper.GetHtmlHelper(dictionaryModel);
+
+            // Act
+            var html = htmlHelper.HiddenFor(m => m.Dict);
+
+            // Assert
+            Assert.Equal(@"<input id=""Dict"" name=""Dict[0].Key"" type=""hidden"" value=""c13d2115-d8d1-4d85-ba66-41d1447f5067"" />" + "\n" +
+                         @"<input id=""Dict"" name=""Dict[0].Value"" type=""hidden"" value=""3"" />" + "\n" +
+                         @"<input id=""Dict"" name=""Dict[1].Key"" type=""hidden"" value=""728eef19-e2e6-46f7-853f-526f4bc2a88d"" />" + "\n" +
+                         @"<input id=""Dict"" name=""Dict[1].Value"" type=""hidden"" value=""11"" />" + "\n" +
+                         @"<input id=""Dict"" name=""Dict[2].Key"" type=""hidden"" value=""88de3b4f-6e9c-4b4b-a338-3f36b2ddad4a"" />" + "\n" +
+                         @"<input id=""Dict"" name=""Dict[2].Value"" type=""hidden"" value=""24"" />",
+                         html.ToHtmlString());
+        }
+
+        [Fact]
         public void HiddenForUsesObjectSpecifiedHtmlAttributes()
         {
             // Arrange
@@ -217,11 +298,11 @@
             var html = htmlHelper.HiddenFor(m => m.Dict, new { @readonly = "readonly" });
 
             // Assert
-            Assert.Equal(@"<input id=""Dict"" name=""Dict[0].Key"" readonly=""readonly"" type=""hidden"" value=""Id"" />" + "\n" +
+            Assert.Equal(@"<input id=""Dict"" name=""Dict[0].Key"" type=""hidden"" value=""Id"" />" + "\n" +
                          @"<input id=""Dict"" name=""Dict[0].Value"" readonly=""readonly"" type=""hidden"" value=""1"" />" + "\n" +
-                         @"<input id=""Dict"" name=""Dict[1].Key"" readonly=""readonly"" type=""hidden"" value=""Title"" />" + "\n" +
+                         @"<input id=""Dict"" name=""Dict[1].Key"" type=""hidden"" value=""Title"" />" + "\n" +
                          @"<input id=""Dict"" name=""Dict[1].Value"" readonly=""readonly"" type=""hidden"" value=""Se7en"" />" + "\n" +
-                         @"<input id=""Dict"" name=""Dict[2].Key"" readonly=""readonly"" type=""hidden"" value=""Director"" />" + "\n" +
+                         @"<input id=""Dict"" name=""Dict[2].Key"" type=""hidden"" value=""Director"" />" + "\n" +
                          @"<input id=""Dict"" name=""Dict[2].Value"" readonly=""readonly"" type=""hidden"" value=""David Fincher"" />",
                          html.ToHtmlString());
         }
@@ -237,18 +318,28 @@
             var html = htmlHelper.HiddenFor(m => m.Dict, new Dictionary<string, object> { { "disabled", "disabled" } });
 
             // Assert
-            Assert.Equal(@"<input disabled=""disabled"" id=""Dict"" name=""Dict[0].Key"" type=""hidden"" value=""Id"" />" + "\n" +
+            Assert.Equal(@"<input id=""Dict"" name=""Dict[0].Key"" type=""hidden"" value=""Id"" />" + "\n" +
                          @"<input disabled=""disabled"" id=""Dict"" name=""Dict[0].Value"" type=""hidden"" value=""1"" />" + "\n" +
-                         @"<input disabled=""disabled"" id=""Dict"" name=""Dict[1].Key"" type=""hidden"" value=""Title"" />" + "\n" +
+                         @"<input id=""Dict"" name=""Dict[1].Key"" type=""hidden"" value=""Title"" />" + "\n" +
                          @"<input disabled=""disabled"" id=""Dict"" name=""Dict[1].Value"" type=""hidden"" value=""Se7en"" />" + "\n" +
-                         @"<input disabled=""disabled"" id=""Dict"" name=""Dict[2].Key"" type=""hidden"" value=""Director"" />" + "\n" +
+                         @"<input id=""Dict"" name=""Dict[2].Key"" type=""hidden"" value=""Director"" />" + "\n" +
                          @"<input disabled=""disabled"" id=""Dict"" name=""Dict[2].Value"" type=""hidden"" value=""David Fincher"" />", 
                          html.ToHtmlString());
         }
 
         private static Dictionary<string, string> CreateDictionary()
         {
-            return new Dictionary<string, string> { { "Id", "1" }, { "Title", "Se7en" }, { "Director", "David Fincher" }, };
+            return new Dictionary<string, string> { { "Id", "1" }, { "Title", "Se7en" }, { "Director", "David Fincher" } };
+        }
+
+        private static Dictionary<Guid, int> CreateNonStringDictionary()
+        {
+            return new Dictionary<Guid, int>
+            {
+                { Guid.Parse("c13d2115-d8d1-4d85-ba66-41d1447f5067"), 3 }, 
+                { Guid.Parse("728eef19-e2e6-46f7-853f-526f4bc2a88d"), 11 }, 
+                { Guid.Parse("88de3b4f-6e9c-4b4b-a338-3f36b2ddad4a"), 24 }
+            };
         }
 
         private static DictionaryModel CreateDictionaryModel()
@@ -256,9 +347,19 @@
             return new DictionaryModel { Dict = CreateDictionary() };
         }
 
+        private static NonDictionaryModel CreateNonStringDictionaryModel()
+        {
+            return new NonDictionaryModel { Dict = CreateNonStringDictionary() };
+        }
+
         private class DictionaryModel
         {
             public Dictionary<string, string> Dict { get; set; }
+        }
+
+        private class NonDictionaryModel
+        {
+            public Dictionary<Guid, int> Dict { get; set; }
         }
     }
 }

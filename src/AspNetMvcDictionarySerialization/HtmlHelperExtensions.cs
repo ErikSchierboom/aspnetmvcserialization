@@ -7,21 +7,21 @@
     using System.Web.Mvc;
 
     /// <summary>
-    /// Extensions to the <see cref="HtmlHelper"/> class. These extensions all work on IDictionary&lt;string, string&gt; instances.
+    /// Extensions to the <see cref="HtmlHelper"/> class. These extensions all work on IDictionary&lt;TIn, TOut&gt; instances.
     /// </summary>
     public static class HtmlHelperExtensions
     {
-        public static MvcHtmlString Editor(this HtmlHelper htmlHelper, string name, IDictionary<string, string> value)
+        public static MvcHtmlString Editor<TIn, TOut>(this HtmlHelper htmlHelper, string name, IDictionary<TIn, TOut> value)
         {
             return Editor(htmlHelper, name, value, htmlAttributes: null);
         }
 
-        public static MvcHtmlString Editor(this HtmlHelper htmlHelper, string name, IDictionary<string, string> value, object htmlAttributes)
+        public static MvcHtmlString Editor<TIn, TOut>(this HtmlHelper htmlHelper, string name, IDictionary<TIn, TOut> value, object htmlAttributes)
         {
             return Editor(htmlHelper, name, value, HtmlHelper.AnonymousObjectToHtmlAttributes(htmlAttributes));
         }
 
-        public static MvcHtmlString Editor(this HtmlHelper htmlHelper, string name, IDictionary<string, string> value, IDictionary<string, object> htmlAttributes)
+        public static MvcHtmlString Editor<TIn, TOut>(this HtmlHelper htmlHelper, string name, IDictionary<TIn, TOut> value, IDictionary<string, object> htmlAttributes)
         {
             return EditorHelper(htmlHelper,
                 metadata: null,
@@ -30,42 +30,42 @@
                 htmlAttributes: htmlAttributes);
         }
 
-        public static MvcHtmlString EditorFor<TModel>(this HtmlHelper<TModel> htmlHelper, Expression<Func<TModel, IDictionary<string, string>>> expression)
+        public static MvcHtmlString EditorFor<TModel, TIn, TOut>(this HtmlHelper<TModel> htmlHelper, Expression<Func<TModel, IDictionary<TIn, TOut>>> expression)
         {
             return EditorFor(htmlHelper, expression, null);
         }
 
-        public static MvcHtmlString EditorFor<TModel>(this HtmlHelper<TModel> htmlHelper, Expression<Func<TModel, IDictionary<string, string>>> expression, object htmlAttributes)
+        public static MvcHtmlString EditorFor<TModel, TIn, TOut>(this HtmlHelper<TModel> htmlHelper, Expression<Func<TModel, IDictionary<TIn, TOut>>> expression, object htmlAttributes)
         {
             return EditorFor(htmlHelper, expression, HtmlHelper.AnonymousObjectToHtmlAttributes(htmlAttributes));
         }
 
-        public static MvcHtmlString EditorFor<TModel>(this HtmlHelper<TModel> htmlHelper, Expression<Func<TModel, IDictionary<string, string>>> expression, IDictionary<string, object> htmlAttributes)
+        public static MvcHtmlString EditorFor<TModel, TIn, TOut>(this HtmlHelper<TModel> htmlHelper, Expression<Func<TModel, IDictionary<TIn, TOut>>> expression, IDictionary<string, object> htmlAttributes)
         {
             var metadata = ModelMetadata.FromLambdaExpression(expression, htmlHelper.ViewData);
             return EditorHelper(htmlHelper,
                 metadata,
-                (IDictionary<string, string>)metadata.Model,
+                (IDictionary<TIn, TOut>)metadata.Model,
                 ExpressionHelper.GetExpressionText(expression),
                 htmlAttributes);
         }
 
-        private static MvcHtmlString EditorHelper(HtmlHelper htmlHelper, ModelMetadata metadata, IDictionary<string, string> value, string expression, IDictionary<string, object> htmlAttributes)
+        private static MvcHtmlString EditorHelper<TIn, TOut>(HtmlHelper htmlHelper, ModelMetadata metadata, IDictionary<TIn, TOut> value, string expression, IDictionary<string, object> htmlAttributes)
         {
             return InputHelper(htmlHelper, metadata, InputType.Text, value, expression, htmlAttributes);
         }
 
-        public static MvcHtmlString Hidden(this HtmlHelper htmlHelper, string name, IDictionary<string, string> value)
+        public static MvcHtmlString Hidden<TIn, TOut>(this HtmlHelper htmlHelper, string name, IDictionary<TIn, TOut> value)
         {
             return Hidden(htmlHelper, name, value, htmlAttributes: null);
         }
 
-        public static MvcHtmlString Hidden(this HtmlHelper htmlHelper, string name, IDictionary<string, string> value, object htmlAttributes)
+        public static MvcHtmlString Hidden<TIn, TOut>(this HtmlHelper htmlHelper, string name, IDictionary<TIn, TOut> value, object htmlAttributes)
         {
             return Hidden(htmlHelper, name, value, HtmlHelper.AnonymousObjectToHtmlAttributes(htmlAttributes));
         }
 
-        public static MvcHtmlString Hidden(this HtmlHelper htmlHelper, string name, IDictionary<string, string> value, IDictionary<string, object> htmlAttributes)
+        public static MvcHtmlString Hidden<TIn, TOut>(this HtmlHelper htmlHelper, string name, IDictionary<TIn, TOut> value, IDictionary<string, object> htmlAttributes)
         {
             return HiddenHelper(htmlHelper,
                 metadata: null,
@@ -74,32 +74,32 @@
                 htmlAttributes: htmlAttributes);
         }
 
-        public static MvcHtmlString HiddenFor<TModel>(this HtmlHelper<TModel> htmlHelper, Expression<Func<TModel, IDictionary<string, string>>> expression)
+        public static MvcHtmlString HiddenFor<TModel, TIn, TOut>(this HtmlHelper<TModel> htmlHelper, Expression<Func<TModel, IDictionary<TIn, TOut>>> expression)
         {
             return HiddenFor(htmlHelper, expression, null);
         }
 
-        public static MvcHtmlString HiddenFor<TModel>(this HtmlHelper<TModel> htmlHelper, Expression<Func<TModel, IDictionary<string, string>>> expression, object htmlAttributes)
+        public static MvcHtmlString HiddenFor<TModel, TIn, TOut>(this HtmlHelper<TModel> htmlHelper, Expression<Func<TModel, IDictionary<TIn, TOut>>> expression, object htmlAttributes)
         {
             return HiddenFor(htmlHelper, expression, HtmlHelper.AnonymousObjectToHtmlAttributes(htmlAttributes));
         }
 
-        public static MvcHtmlString HiddenFor<TModel>(this HtmlHelper<TModel> htmlHelper, Expression<Func<TModel, IDictionary<string, string>>> expression, IDictionary<string, object> htmlAttributes)
+        public static MvcHtmlString HiddenFor<TModel, TIn, TOut>(this HtmlHelper<TModel> htmlHelper, Expression<Func<TModel, IDictionary<TIn, TOut>>> expression, IDictionary<string, object> htmlAttributes)
         {
             var metadata = ModelMetadata.FromLambdaExpression(expression, htmlHelper.ViewData);
             return HiddenHelper(htmlHelper,
                 metadata,
-                (IDictionary<string, string>)metadata.Model,
+                (IDictionary<TIn, TOut>)metadata.Model,
                 ExpressionHelper.GetExpressionText(expression),
                 htmlAttributes);
         }
 
-        private static MvcHtmlString HiddenHelper(HtmlHelper htmlHelper, ModelMetadata metadata, IDictionary<string, string> value, string expression, IDictionary<string, object> htmlAttributes)
+        private static MvcHtmlString HiddenHelper<TIn, TOut>(HtmlHelper htmlHelper, ModelMetadata metadata, IDictionary<TIn, TOut> value, string expression, IDictionary<string, object> htmlAttributes)
         {
             return InputHelper(htmlHelper, metadata, InputType.Hidden, value, expression, htmlAttributes);
         }
 
-        private static MvcHtmlString InputHelper(HtmlHelper htmlHelper, ModelMetadata metadata, InputType inputType, IDictionary<string, string> value, string expression, IDictionary<string, object> htmlAttributes)
+        private static MvcHtmlString InputHelper<TIn, TOut>(HtmlHelper htmlHelper, ModelMetadata metadata, InputType inputType, IDictionary<TIn, TOut> value, string expression, IDictionary<string, object> htmlAttributes)
         {
             var fullName = htmlHelper.ViewContext.ViewData.TemplateInfo.GetFullHtmlFieldName(expression);
             if (String.IsNullOrEmpty(fullName))
@@ -112,21 +112,21 @@
             // For every element in the dictionary, we will create an input field for the key and one for the value
             for (var i = 0; i < value.Count; i++)
             {
-                strings.Add(InputHelperForKey(htmlHelper, metadata, inputType, value, expression, htmlAttributes, fullName, i));
+                strings.Add(InputHelperForKey(htmlHelper, metadata, value, expression, fullName, i));
                 strings.Add(InputHelperForValue(htmlHelper, metadata, inputType, value, expression, htmlAttributes, fullName, i));
             }
 
             return new MvcHtmlString(string.Join("\n", strings));
         }
 
-        private static string InputHelperForKey(HtmlHelper htmlHelper, ModelMetadata metadata, InputType inputType, IDictionary<string, string> value, string expression, IDictionary<string, object> htmlAttributes, string fullName, int index)
+        private static string InputHelperForKey<TIn, TOut>(HtmlHelper htmlHelper, ModelMetadata metadata, IDictionary<TIn, TOut> value, string expression, string fullName, int index)
         {
-            return InputTagHelper(htmlHelper, metadata, inputType, expression, htmlAttributes, fullName, index, "Key", value.Keys.ElementAt(index));
+            return InputTagHelper(htmlHelper, metadata, InputType.Hidden, expression, null, fullName, index, "Key", value.Keys.ElementAt(index).ToString());
         }
 
-        private static string InputHelperForValue(HtmlHelper htmlHelper, ModelMetadata metadata, InputType inputType, IDictionary<string, string> value, string expression, IDictionary<string, object> htmlAttributes, string fullName, int index)
+        private static string InputHelperForValue<TIn, TOut>(HtmlHelper htmlHelper, ModelMetadata metadata, InputType inputType, IDictionary<TIn, TOut> value, string expression, IDictionary<string, object> htmlAttributes, string fullName, int index)
         {
-            return InputTagHelper(htmlHelper, metadata, inputType, expression, htmlAttributes, fullName, index, "Value", value.Values.ElementAt(index));
+            return InputTagHelper(htmlHelper, metadata, inputType, expression, htmlAttributes, fullName, index, "Value", value.Values.ElementAt(index).ToString());
         }
 
         private static string InputTagHelper(HtmlHelper htmlHelper, ModelMetadata metadata, InputType inputType, string expression, IDictionary<string, object> htmlAttributes, string fullName, int index, string fieldType, string val)
