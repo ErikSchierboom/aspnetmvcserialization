@@ -4,7 +4,7 @@
 
 ## Introduction
 
-Serializing and de-serializing an `IDictionary<string,string>` instance in ASP.NET MVC is not supported by default. The correct format in which a dictionary needs to be serialized is very specific. Say we have the following dictionary:
+Serializing and de-serializing an `IDictionary<TIn,TOut>` instance in ASP.NET MVC is not supported by default. The correct format in which a dictionary needs to be serialized is very specific. Say we have the following dictionary:
 
 ```c#
 var dict = new Dictionary<string, string>

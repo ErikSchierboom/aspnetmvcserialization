@@ -9,7 +9,13 @@
     <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0</licenseUrl>
     <projectUrl>https://github.com/ErikSchierboom/aspnetmvcdictionaryserialization</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>$description$</description>    
+    <description>$description$</description>
+    <releaseNotes>
+Allow all types of dictionaries.
+Input for key always rendered as hidden field.
+Input for Key ignores HTML attributes.
+Generate unique ID's.
+    </releaseNotes>
     <copyright>Copyright 2014</copyright>
     <tags>asp.net mvc dictionary serialization</tags>
   </metadata>
