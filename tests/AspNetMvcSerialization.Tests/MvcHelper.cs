@@ -1,8 +1,7 @@
-namespace AspNetMvcDictionarySerialization.Tests
+namespace AspNetMvcSerialization.Tests
 {
     using System.Collections;
     using System.Web.Mvc;
-
     using Moq;
 
     internal static class MvcHelper

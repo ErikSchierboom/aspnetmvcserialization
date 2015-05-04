@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package >
   <metadata>
-    <id>MvcDictionarySerialization</id>
+    <id>MvcSerialization</id>
     <version>$version$</version>
     <title>$title$</title>
     <authors>$author$</authors>
@@ -10,12 +10,7 @@
     <projectUrl>https://github.com/ErikSchierboom/aspnetmvcdictionaryserialization</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
-    <releaseNotes>
-Allow all types of dictionaries.
-Input for key always rendered as hidden field.
-Input for Key ignores HTML attributes.
-Generate unique ID's.
-    </releaseNotes>
+    <releaseNotes></releaseNotes>
     <copyright>Copyright 2014</copyright>
     <tags>asp.net mvc dictionary serialization</tags>
   </metadata>

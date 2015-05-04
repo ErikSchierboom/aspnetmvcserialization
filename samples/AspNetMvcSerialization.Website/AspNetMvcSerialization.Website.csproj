@@ -11,8 +11,8 @@
     <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AspNetMvcDictionarySerialization.Website</RootNamespace>
-    <AssemblyName>AspNetMvcDictionarySerialization.Website</AssemblyName>
+    <RootNamespace>AspNetMvcSerialization.Website</RootNamespace>
+    <AssemblyName>AspNetMvcSerialization.Website</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
@@ -132,9 +132,9 @@
     <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\src\AspNetMvcDictionarySerialization\AspNetMvcDictionarySerialization.csproj">
+    <ProjectReference Include="..\..\src\AspNetMvcSerialization\AspNetMvcSerialization.csproj">
       <Project>{16566763-6fc8-426d-9666-300ca06fdb7c}</Project>
-      <Name>AspNetMvcDictionarySerialization</Name>
+      <Name>AspNetMvcSerialization</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

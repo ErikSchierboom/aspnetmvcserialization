@@ -1,8 +1,7 @@
-﻿namespace AspNetMvcDictionarySerialization.Tests
+﻿namespace AspNetMvcSerialization.Tests
 {
     using System;
     using System.Collections.Generic;
-
     using Xunit;
 
     public class HtmlHelperExtensionsTests

@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("ASP.NET MVC Dictionary Serialization")]
-[assembly: AssemblyDescription("Adds HtmlHelper extension methods to correctly serialize dictionaries.")]
+[assembly: AssemblyTitle("ASP.NET MVC Serialization")]
+[assembly: AssemblyDescription("Adds methods to help serialize complex objects for use in ASP.NET MVC.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Erik Schierboom")]
-[assembly: AssemblyProduct("MvcDictionarySerialization")]
+[assembly: AssemblyProduct("MvcSerialization")]
 [assembly: AssemblyCopyright("Copyright © Erik Schierboom 2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -33,6 +33,6 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.1.0")]
-[assembly: AssemblyFileVersion("1.1.0")]
-[assembly: AssemblyInformationalVersion("1.1.0")]
+[assembly: AssemblyVersion("1.0.0")]
+[assembly: AssemblyFileVersion("1.0.0")]
+[assembly: AssemblyInformationalVersion("1.0.0")]

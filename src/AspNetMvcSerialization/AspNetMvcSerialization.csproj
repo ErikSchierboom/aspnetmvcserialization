@@ -7,8 +7,8 @@
     <ProjectGuid>{16566763-6FC8-426D-9666-300CA06FDB7C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AspNetMvcDictionarySerialization</RootNamespace>
-    <AssemblyName>AspNetMvcDictionarySerialization</AssemblyName>
+    <RootNamespace>AspNetMvcSerialization</RootNamespace>
+    <AssemblyName>AspNetMvcSerialization</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>

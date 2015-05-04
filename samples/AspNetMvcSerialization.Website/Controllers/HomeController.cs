@@ -1,9 +1,8 @@
-﻿namespace AspNetMvcDictionarySerialization.Website.Controllers
+﻿namespace AspNetMvcSerialization.Website.Controllers
 {
     using System.Collections.Generic;
     using System.Web.Mvc;
-
-    using AspNetMvcDictionarySerialization.Website.Models;
+    using Models;
 
     public class HomeController : Controller
     {

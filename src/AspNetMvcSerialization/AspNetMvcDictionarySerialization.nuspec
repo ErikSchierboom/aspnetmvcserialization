@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>MvcDictionarySerialization</id>
+    <version>1.2.0</version>
+    <title>ASP.NET MVC Dictionary Serialization</title>
+    <authors>Erik Schierboom</authors>
+    <owners>Erik Schierboom</owners>
+    <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0</licenseUrl>
+    <projectUrl>https://github.com/ErikSchierboom/aspnetmvcdictionaryserialization</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Adds HtmlHelper extension methods to correctly serialize dictionaries.</description>
+    <releaseNotes>
+Converted to meta package. 
+Breaking change: the namespace has changed to AspNetMvcSerialization.</releaseNotes>
+    <copyright>Copyright 2014</copyright>
+    <tags>asp.net mvc dictionary serialization</tags>
+    <dependencies>
+      <dependency id="MvcSerialization" version="1.0.0" />
+    </dependencies>
+  </metadata>
+  <files />
+</package>

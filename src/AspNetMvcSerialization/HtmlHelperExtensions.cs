@@ -1,4 +1,4 @@
-﻿namespace AspNetMvcDictionarySerialization
+﻿namespace AspNetMvcSerialization
 {
     using System;
     using System.Collections.Generic;

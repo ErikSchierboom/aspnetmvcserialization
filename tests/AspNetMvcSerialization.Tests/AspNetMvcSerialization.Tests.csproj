@@ -8,8 +8,8 @@
     <ProjectGuid>{E3D16D3C-5052-46BC-9ADA-C15D57D57FB7}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AspNetMvcDictionarySerialization.Tests</RootNamespace>
-    <AssemblyName>AspNetMvcDictionarySerialization.Tests</AssemblyName>
+    <RootNamespace>AspNetMvcSerialization.Tests</RootNamespace>
+    <AssemblyName>AspNetMvcSerialization.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
@@ -63,9 +63,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\src\AspNetMvcDictionarySerialization\AspNetMvcDictionarySerialization.csproj">
+    <ProjectReference Include="..\..\src\AspNetMvcSerialization\AspNetMvcSerialization.csproj">
       <Project>{16566763-6FC8-426D-9666-300CA06FDB7C}</Project>
-      <Name>AspNetMvcDictionarySerialization</Name>
+      <Name>AspNetMvcSerialization</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

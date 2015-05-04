@@ -1,20 +1,21 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30723.0
+VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B443AD8D-A26C-4694-85A2-45B671121F44}"
 	ProjectSection(SolutionItems) = preProject
-		src\AspNetMvcDictionarySerialization\AspNetMvcDictionarySerialization.nuspec = src\AspNetMvcDictionarySerialization\AspNetMvcDictionarySerialization.nuspec
+		src\AspNetMvcSerialization\AspNetMvcDictionarySerialization.nuspec = src\AspNetMvcSerialization\AspNetMvcDictionarySerialization.nuspec
+		src\AspNetMvcSerialization\AspNetMvcSerialization.nuspec = src\AspNetMvcSerialization\AspNetMvcSerialization.nuspec
 		LICENSE.md = LICENSE.md
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetMvcDictionarySerialization.Tests", "tests\AspNetMvcDictionarySerialization.Tests\AspNetMvcDictionarySerialization.Tests.csproj", "{E3D16D3C-5052-46BC-9ADA-C15D57D57FB7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetMvcSerialization.Tests", "tests\AspNetMvcSerialization.Tests\AspNetMvcSerialization.Tests.csproj", "{E3D16D3C-5052-46BC-9ADA-C15D57D57FB7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetMvcDictionarySerialization.Website", "samples\AspNetMvcDictionarySerialization.Website\AspNetMvcDictionarySerialization.Website.csproj", "{61F53904-F9EA-467F-9914-019E3D982E65}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetMvcSerialization.Website", "samples\AspNetMvcSerialization.Website\AspNetMvcSerialization.Website.csproj", "{61F53904-F9EA-467F-9914-019E3D982E65}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetMvcDictionarySerialization", "src\AspNetMvcDictionarySerialization\AspNetMvcDictionarySerialization.csproj", "{16566763-6FC8-426D-9666-300CA06FDB7C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetMvcSerialization", "src\AspNetMvcSerialization\AspNetMvcSerialization.csproj", "{16566763-6FC8-426D-9666-300CA06FDB7C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
