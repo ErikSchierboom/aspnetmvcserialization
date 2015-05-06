@@ -333,14 +333,14 @@
         public class UsingKeyValuePairInDictionary
         {
             [Fact]
-            public void EditorReturnsCorrectFormatForKeyValuePair()
+            public void EditorIndexedReturnsCorrectFormatForKeyValuePair()
             {
                 // Arrange
                 var inputDictionary = CreateDictionary();
                 var htmlHelper = MvcHelper.GetHtmlHelper(inputDictionary);
 
                 // Act
-                var html = htmlHelper.Editor("Dict", inputDictionary.ElementAt(1), 1);
+                var html = htmlHelper.EditorIndexed("Dict", inputDictionary.ElementAt(1), 1);
 
                 // Assert
                 Assert.Equal(@"<input id=""Dict_1_Key"" name=""Dict[1].Key"" type=""hidden"" value=""Title"" />" + "\n" +
@@ -349,14 +349,14 @@
             }
 
             [Fact]
-            public void EditorReturnsCorrectFormatForNonStringKeyValuePair()
+            public void EditorIndexedReturnsCorrectFormatForNonStringKeyValuePair()
             {
                 // Arrange
                 var inputDictionary = CreateNonStringDictionary();
                 var htmlHelper = MvcHelper.GetHtmlHelper(inputDictionary);
 
                 // Act
-                var html = htmlHelper.Editor("Dict", inputDictionary.ElementAt(1), 1);
+                var html = htmlHelper.EditorIndexed("Dict", inputDictionary.ElementAt(1), 1);
 
                 // Assert
                 Assert.Equal(@"<input id=""Dict_1_Key"" name=""Dict[1].Key"" type=""hidden"" value=""728eef19-e2e6-46f7-853f-526f4bc2a88d"" />" + "\n" +
@@ -365,14 +365,14 @@
             }
 
             [Fact]
-            public void EditorUsesHtmlAttributesObject()
+            public void EditorIndexedUsesHtmlAttributesObject()
             {
                 // Arrange
                 var inputDictionary = CreateDictionary();
                 var htmlHelper = MvcHelper.GetHtmlHelper(inputDictionary);
 
                 // Act
-                var html = htmlHelper.Editor("Dict", inputDictionary.ElementAt(1), 1, new { @readonly = "readonly" });
+                var html = htmlHelper.EditorIndexed("Dict", inputDictionary.ElementAt(1), 1, new { @readonly = "readonly" });
 
                 // Assert
                 Assert.Equal(@"<input id=""Dict_1_Key"" name=""Dict[1].Key"" type=""hidden"" value=""Title"" />" + "\n" +
@@ -381,14 +381,14 @@
             }
 
             [Fact]
-            public void EditorUsesHtmlAttributesDictionary()
+            public void EditorIndexedUsesHtmlAttributesDictionary()
             {
                 // Arrange
                 var inputDictionary = CreateDictionary();
                 var htmlHelper = MvcHelper.GetHtmlHelper(inputDictionary);
 
                 // Act
-                var html = htmlHelper.Editor("Dict", inputDictionary.ElementAt(1), 1, new Dictionary<string, object> { { "disabled", "disabled" } });
+                var html = htmlHelper.EditorIndexed("Dict", inputDictionary.ElementAt(1), 1, new Dictionary<string, object> { { "disabled", "disabled" } });
 
                 // Assert
                 Assert.Equal(@"<input id=""Dict_1_Key"" name=""Dict[1].Key"" type=""hidden"" value=""Title"" />" + "\n" +
@@ -397,14 +397,14 @@
             }
 
             [Fact]
-            public void EditorForReturnsCorrectFormatForKeyValuePair()
+            public void EditorForIndexedReturnsCorrectFormatForKeyValuePair()
             {
                 // Arrange
                 var dictionaryModel = CreateDictionaryModel();
                 var htmlHelper = MvcHelper.GetHtmlHelper(dictionaryModel);
 
                 // Act
-                var html = htmlHelper.EditorFor(m => m.Dict, 1);
+                var html = htmlHelper.EditorForIndexed(m => m.Dict, 1);
 
                 // Assert
                 Assert.Equal(@"<input id=""Dict_1_Key"" name=""Dict[1].Key"" type=""hidden"" value=""Title"" />" + "\n" +
@@ -413,14 +413,14 @@
             }
 
             [Fact]
-            public void EditorForReturnsCorrectFormatForNonStringKeyValuePair()
+            public void EditorForIndexedReturnsCorrectFormatForNonStringKeyValuePair()
             {
                 // Arrange
                 var dictionaryModel = CreateNonStringDictionaryModel();
                 var htmlHelper = MvcHelper.GetHtmlHelper(dictionaryModel);
 
                 // Act
-                var html = htmlHelper.EditorFor(m => m.Dict, 1);
+                var html = htmlHelper.EditorForIndexed(m => m.Dict, 1);
 
                 // Assert
                 Assert.Equal(@"<input id=""Dict_1_Key"" name=""Dict[1].Key"" type=""hidden"" value=""728eef19-e2e6-46f7-853f-526f4bc2a88d"" />" + "\n" +
@@ -429,14 +429,14 @@
             }
 
             [Fact]
-            public void EditorForUsesHtmlAttributesObject()
+            public void EditorForIndexedUsesHtmlAttributesObject()
             {
                 // Arrange
                 var dictionaryModel = CreateDictionaryModel();
                 var htmlHelper = MvcHelper.GetHtmlHelper(dictionaryModel);
 
                 // Act
-                var html = htmlHelper.EditorFor(m => m.Dict, 1, new { @readonly = "readonly" });
+                var html = htmlHelper.EditorForIndexed(m => m.Dict, 1, new { @readonly = "readonly" });
 
                 // Assert
                 Assert.Equal(@"<input id=""Dict_1_Key"" name=""Dict[1].Key"" type=""hidden"" value=""Title"" />" + "\n" +
@@ -445,14 +445,14 @@
             }
 
             [Fact]
-            public void EditorForUsesHtmlAttributesDictionary()
+            public void EditorForIndexedUsesHtmlAttributesDictionary()
             {
                 // Arrange
                 var dictionaryModel = CreateDictionaryModel();
                 var htmlHelper = MvcHelper.GetHtmlHelper(dictionaryModel);
 
                 // Act
-                var html = htmlHelper.EditorFor(m => m.Dict, 1, new Dictionary<string, object> { { "disabled", "disabled" } });
+                var html = htmlHelper.EditorForIndexed(m => m.Dict, 1, new Dictionary<string, object> { { "disabled", "disabled" } });
 
                 // Assert
                 Assert.Equal(@"<input id=""Dict_1_Key"" name=""Dict[1].Key"" type=""hidden"" value=""Title"" />" + "\n" +
@@ -461,14 +461,14 @@
             }
 
             [Fact]
-            public void HiddenReturnsCorrectFormatForKeyValuePair()
+            public void HiddenIndexedReturnsCorrectFormatForKeyValuePair()
             {
                 // Arrange
                 var inputDictionary = CreateDictionary();
                 var htmlHelper = MvcHelper.GetHtmlHelper(inputDictionary);
 
                 // Act
-                var html = htmlHelper.Hidden("Dict", inputDictionary.ElementAt(1), 1);
+                var html = htmlHelper.HiddenIndexed("Dict", inputDictionary.ElementAt(1), 1);
 
                 // Assert
                 Assert.Equal(@"<input id=""Dict_1_Key"" name=""Dict[1].Key"" type=""hidden"" value=""Title"" />" + "\n" +
@@ -477,14 +477,14 @@
             }
 
             [Fact]
-            public void HiddenReturnsCorrectFormatForNonStringKeyValuePair()
+            public void HiddenIndexedReturnsCorrectFormatForNonStringKeyValuePair()
             {
                 // Arrange
                 var inputDictionary = CreateNonStringDictionary();
                 var htmlHelper = MvcHelper.GetHtmlHelper(inputDictionary);
 
                 // Act
-                var html = htmlHelper.Hidden("Dict", inputDictionary.ElementAt(1), 1);
+                var html = htmlHelper.HiddenIndexed("Dict", inputDictionary.ElementAt(1), 1);
 
                 // Assert
                 Assert.Equal(@"<input id=""Dict_1_Key"" name=""Dict[1].Key"" type=""hidden"" value=""728eef19-e2e6-46f7-853f-526f4bc2a88d"" />" + "\n" +
@@ -493,14 +493,14 @@
             }
 
             [Fact]
-            public void HiddenUsesHtmlAttributesObject()
+            public void HiddenIndexedUsesHtmlAttributesObject()
             {
                 // Arrange
                 var inputDictionary = CreateDictionary();
                 var htmlHelper = MvcHelper.GetHtmlHelper(inputDictionary);
 
                 // Act
-                var html = htmlHelper.Hidden("Dict", inputDictionary.ElementAt(1), 1, (object)new { @readonly = "readonly" });
+                var html = htmlHelper.HiddenIndexed("Dict", inputDictionary.ElementAt(1), 1, (object)new { @readonly = "readonly" });
 
                 // Assert
                 Assert.Equal(@"<input id=""Dict_1_Key"" name=""Dict[1].Key"" type=""hidden"" value=""Title"" />" + "\n" +
@@ -509,14 +509,14 @@
             }
 
             [Fact]
-            public void HiddenUsesHtmlAttributesDictionary()
+            public void HiddenIndexedUsesHtmlAttributesDictionary()
             {
                 // Arrange
                 var inputDictionary = CreateDictionary();
                 var htmlHelper = MvcHelper.GetHtmlHelper(inputDictionary);
 
                 // Act
-                var html = htmlHelper.Hidden("Dict", inputDictionary.ElementAt(1), 1, new Dictionary<string, object> { { "disabled", "disabled" } });
+                var html = htmlHelper.HiddenIndexed("Dict", inputDictionary.ElementAt(1), 1, new Dictionary<string, object> { { "disabled", "disabled" } });
 
                 // Assert
                 Assert.Equal(@"<input id=""Dict_1_Key"" name=""Dict[1].Key"" type=""hidden"" value=""Title"" />" + "\n" +
@@ -525,14 +525,14 @@
             }
 
             [Fact]
-            public void HiddenForReturnsCorrectFormatForKeyValuePair()
+            public void HiddenForIndexedReturnsCorrectFormatForKeyValuePair()
             {
                 // Arrange
                 var dictionaryModel = CreateDictionaryModel();
                 var htmlHelper = MvcHelper.GetHtmlHelper(dictionaryModel);
 
                 // Act
-                var html = htmlHelper.HiddenFor(m => m.Dict, 1);
+                var html = htmlHelper.HiddenForIndexed(m => m.Dict, 1);
 
                 // Assert
                 Assert.Equal(@"<input id=""Dict_1_Key"" name=""Dict[1].Key"" type=""hidden"" value=""Title"" />" + "\n" +
@@ -541,14 +541,14 @@
             }
 
             [Fact]
-            public void HiddenForReturnsCorrectFormatForNonStringKeyValuePair()
+            public void HiddenForIndexedReturnsCorrectFormatForNonStringKeyValuePair()
             {
                 // Arrange
                 var dictionaryModel = CreateNonStringDictionaryModel();
                 var htmlHelper = MvcHelper.GetHtmlHelper(dictionaryModel);
 
                 // Act
-                var html = htmlHelper.HiddenFor(m => m.Dict, 1);
+                var html = htmlHelper.HiddenForIndexed(m => m.Dict, 1);
 
                 // Assert
                 Assert.Equal(@"<input id=""Dict_1_Key"" name=""Dict[1].Key"" type=""hidden"" value=""728eef19-e2e6-46f7-853f-526f4bc2a88d"" />" + "\n" +
@@ -557,14 +557,14 @@
             }
 
             [Fact]
-            public void HiddenForUsesHtmlAttributesObject()
+            public void HiddenForIndexedUsesHtmlAttributesObject()
             {
                 // Arrange
                 var dictionaryModel = CreateDictionaryModel();
                 var htmlHelper = MvcHelper.GetHtmlHelper(dictionaryModel);
 
                 // Act
-                var html = htmlHelper.HiddenFor(m => m.Dict, 1, new { @readonly = "readonly" });
+                var html = htmlHelper.HiddenForIndexed(m => m.Dict, 1, new { @readonly = "readonly" });
 
                 // Assert
                 Assert.Equal(@"<input id=""Dict_1_Key"" name=""Dict[1].Key"" type=""hidden"" value=""Title"" />" + "\n" +
@@ -573,14 +573,14 @@
             }
 
             [Fact]
-            public void HiddenForUsesHtmlAttributesDictionary()
+            public void HiddenForIndexedUsesHtmlAttributesDictionary()
             {
                 // Arrange
                 var dictionaryModel = CreateDictionaryModel();
                 var htmlHelper = MvcHelper.GetHtmlHelper(dictionaryModel);
 
                 // Act
-                var html = htmlHelper.HiddenFor(m => m.Dict, 1, new Dictionary<string, object> { { "disabled", "disabled" } });
+                var html = htmlHelper.HiddenForIndexed(m => m.Dict, 1, new Dictionary<string, object> { { "disabled", "disabled" } });
 
                 // Assert
                 Assert.Equal(@"<input id=""Dict_1_Key"" name=""Dict[1].Key"" type=""hidden"" value=""Title"" />" + "\n" +
