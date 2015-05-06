@@ -11,41 +11,41 @@
     /// </summary>
     public static class HtmlHelperDictionaryExtensions
     {
-        public static MvcHtmlString EditorIndexed<TIn, TOut>(this HtmlHelper htmlHelper, string name, KeyValuePair<TIn, TOut> value, int index)
+        public static MvcHtmlString EditorIndexed<TIn, TOut>(this HtmlHelper htmlHelper, string name, KeyValuePair<TIn, TOut> keyValuePair, int index)
         {
-            return EditorIndexed(htmlHelper, name, value, index, htmlAttributes: null);
+            return EditorIndexed(htmlHelper, name, keyValuePair, index, htmlAttributes: null);
         }
 
-        public static MvcHtmlString EditorIndexed<TIn, TOut>(this HtmlHelper htmlHelper, string name, KeyValuePair<TIn, TOut> value, int index, object htmlAttributes)
+        public static MvcHtmlString EditorIndexed<TIn, TOut>(this HtmlHelper htmlHelper, string name, KeyValuePair<TIn, TOut> keyValuePair, int index, object htmlAttributes)
         {
-            return EditorIndexed(htmlHelper, name, value, index, HtmlHelper.AnonymousObjectToHtmlAttributes(htmlAttributes));
+            return EditorIndexed(htmlHelper, name, keyValuePair, index, HtmlHelper.AnonymousObjectToHtmlAttributes(htmlAttributes));
         }
 
-        public static MvcHtmlString EditorIndexed<TIn, TOut>(this HtmlHelper htmlHelper, string name, KeyValuePair<TIn, TOut> value, int index, IDictionary<string, object> htmlAttributes)
+        public static MvcHtmlString EditorIndexed<TIn, TOut>(this HtmlHelper htmlHelper, string name, KeyValuePair<TIn, TOut> keyValuePair, int index, IDictionary<string, object> htmlAttributes)
         {
             return EditorHelperIndexed(htmlHelper,
                 metadata: null,
-                value: value,
+                keyValuePair: keyValuePair,
                 index: index,
                 expression: name,
                 htmlAttributes: htmlAttributes);
         }
 
-        public static MvcHtmlString Editor<TIn, TOut>(this HtmlHelper htmlHelper, string name, IDictionary<TIn, TOut> value)
+        public static MvcHtmlString Editor<TIn, TOut>(this HtmlHelper htmlHelper, string name, IDictionary<TIn, TOut> values)
         {
-            return Editor(htmlHelper, name, value, htmlAttributes: null);
+            return Editor(htmlHelper, name, values, htmlAttributes: null);
         }
 
-        public static MvcHtmlString Editor<TIn, TOut>(this HtmlHelper htmlHelper, string name, IDictionary<TIn, TOut> value, object htmlAttributes)
+        public static MvcHtmlString Editor<TIn, TOut>(this HtmlHelper htmlHelper, string name, IDictionary<TIn, TOut> values, object htmlAttributes)
         {
-            return Editor(htmlHelper, name, value, HtmlHelper.AnonymousObjectToHtmlAttributes(htmlAttributes));
+            return Editor(htmlHelper, name, values, HtmlHelper.AnonymousObjectToHtmlAttributes(htmlAttributes));
         }
 
-        public static MvcHtmlString Editor<TIn, TOut>(this HtmlHelper htmlHelper, string name, IDictionary<TIn, TOut> value, IDictionary<string, object> htmlAttributes)
+        public static MvcHtmlString Editor<TIn, TOut>(this HtmlHelper htmlHelper, string name, IDictionary<TIn, TOut> values, IDictionary<string, object> htmlAttributes)
         {
             return EditorHelper(htmlHelper,
                 metadata: null,
-                value: value,
+                values: values,
                 expression: name,
                 htmlAttributes: htmlAttributes);
         }
@@ -91,51 +91,51 @@
                 htmlAttributes);
         }
 
-        private static MvcHtmlString EditorHelperIndexed<TIn, TOut>(HtmlHelper htmlHelper, ModelMetadata metadata, KeyValuePair<TIn, TOut> value, int index, string expression, IDictionary<string, object> htmlAttributes)
+        private static MvcHtmlString EditorHelper<TIn, TOut>(HtmlHelper htmlHelper, ModelMetadata metadata, IDictionary<TIn, TOut> values, string expression, IDictionary<string, object> htmlAttributes)
         {
-            return InputHelperIndexed(htmlHelper, metadata, InputType.Text, value, index, expression, htmlAttributes);
+            return InputHelper(htmlHelper, metadata, InputType.Text, values, expression, htmlAttributes);
         }
 
-        private static MvcHtmlString EditorHelper<TIn, TOut>(HtmlHelper htmlHelper, ModelMetadata metadata, IDictionary<TIn, TOut> value, string expression, IDictionary<string, object> htmlAttributes)
+        private static MvcHtmlString EditorHelperIndexed<TIn, TOut>(HtmlHelper htmlHelper, ModelMetadata metadata, KeyValuePair<TIn, TOut> keyValuePair, int index, string expression, IDictionary<string, object> htmlAttributes)
         {
-            return InputHelper(htmlHelper, metadata, InputType.Text, value, expression, htmlAttributes);
+            return InputHelperIndexed(htmlHelper, metadata, InputType.Text, keyValuePair, index, expression, htmlAttributes);
         }
 
-        public static MvcHtmlString HiddenIndexed<TIn, TOut>(this HtmlHelper htmlHelper, string name, KeyValuePair<TIn, TOut> value, int index)
+        public static MvcHtmlString HiddenIndexed<TIn, TOut>(this HtmlHelper htmlHelper, string name, KeyValuePair<TIn, TOut> keyValuePair, int index)
         {
-            return HiddenIndexed(htmlHelper, name, value, index, htmlAttributes: null);
+            return HiddenIndexed(htmlHelper, name, keyValuePair, index, htmlAttributes: null);
         }
 
-        public static MvcHtmlString HiddenIndexed<TIn, TOut>(this HtmlHelper htmlHelper, string name, KeyValuePair<TIn, TOut> value, int index, object htmlAttributes)
+        public static MvcHtmlString HiddenIndexed<TIn, TOut>(this HtmlHelper htmlHelper, string name, KeyValuePair<TIn, TOut> keyValuePair, int index, object htmlAttributes)
         {
-            return HiddenIndexed(htmlHelper, name, value, index, HtmlHelper.AnonymousObjectToHtmlAttributes(htmlAttributes));
+            return HiddenIndexed(htmlHelper, name, keyValuePair, index, HtmlHelper.AnonymousObjectToHtmlAttributes(htmlAttributes));
         }
 
-        public static MvcHtmlString HiddenIndexed<TIn, TOut>(this HtmlHelper htmlHelper, string name, KeyValuePair<TIn, TOut> value, int index, IDictionary<string, object> htmlAttributes)
+        public static MvcHtmlString HiddenIndexed<TIn, TOut>(this HtmlHelper htmlHelper, string name, KeyValuePair<TIn, TOut> keyValuePair, int index, IDictionary<string, object> htmlAttributes)
         {
             return HiddenHelperIndexed(htmlHelper,
                 metadata: null,
-                value: value,
+                keyValuePair: keyValuePair,
                 index: index,
                 expression: name,
                 htmlAttributes: htmlAttributes);
         }
 
-        public static MvcHtmlString Hidden<TIn, TOut>(this HtmlHelper htmlHelper, string name, IDictionary<TIn, TOut> value)
+        public static MvcHtmlString Hidden<TIn, TOut>(this HtmlHelper htmlHelper, string name, IDictionary<TIn, TOut> values)
         {
-            return Hidden(htmlHelper, name, value, htmlAttributes: null);
+            return Hidden(htmlHelper, name, values, htmlAttributes: null);
         }
 
-        public static MvcHtmlString Hidden<TIn, TOut>(this HtmlHelper htmlHelper, string name, IDictionary<TIn, TOut> value, object htmlAttributes)
+        public static MvcHtmlString Hidden<TIn, TOut>(this HtmlHelper htmlHelper, string name, IDictionary<TIn, TOut> values, object htmlAttributes)
         {
-            return Hidden(htmlHelper, name, value, HtmlHelper.AnonymousObjectToHtmlAttributes(htmlAttributes));
+            return Hidden(htmlHelper, name, values, HtmlHelper.AnonymousObjectToHtmlAttributes(htmlAttributes));
         }
 
-        public static MvcHtmlString Hidden<TIn, TOut>(this HtmlHelper htmlHelper, string name, IDictionary<TIn, TOut> value, IDictionary<string, object> htmlAttributes)
+        public static MvcHtmlString Hidden<TIn, TOut>(this HtmlHelper htmlHelper, string name, IDictionary<TIn, TOut> values, IDictionary<string, object> htmlAttributes)
         {
             return HiddenHelper(htmlHelper,
                 metadata: null,
-                value: value,
+                values: values,
                 expression: name,
                 htmlAttributes: htmlAttributes);
         }
@@ -181,17 +181,22 @@
                 htmlAttributes);
         }
 
-        private static MvcHtmlString HiddenHelper<TIn, TOut>(HtmlHelper htmlHelper, ModelMetadata metadata, IDictionary<TIn, TOut> value, string expression, IDictionary<string, object> htmlAttributes)
+        private static MvcHtmlString HiddenHelper<TIn, TOut>(HtmlHelper htmlHelper, ModelMetadata metadata, IDictionary<TIn, TOut> values, string expression, IDictionary<string, object> htmlAttributes)
         {
-            return InputHelper(htmlHelper, metadata, InputType.Hidden, value, expression, htmlAttributes);
+            return InputHelper(htmlHelper, metadata, InputType.Hidden, values, expression, htmlAttributes);
         }
 
-        private static MvcHtmlString HiddenHelperIndexed<TIn, TOut>(HtmlHelper htmlHelper, ModelMetadata metadata, KeyValuePair<TIn, TOut> value, int index, string expression, IDictionary<string, object> htmlAttributes)
+        private static MvcHtmlString InputHelper<TIn, TOut>(HtmlHelper htmlHelper, ModelMetadata metadata, InputType inputType, IDictionary<TIn, TOut> values, string expression, IDictionary<string, object> htmlAttributes)
         {
-            return InputHelperIndexed(htmlHelper, metadata, InputType.Hidden, value, index, expression, htmlAttributes);
+            return new MvcHtmlString(string.Join("\n", values.Select((kv, i) => InputHelperIndexed(htmlHelper, metadata, inputType, kv, i, expression, htmlAttributes).ToHtmlString())));
         }
 
-        private static MvcHtmlString InputHelperIndexed<TIn, TOut>(HtmlHelper htmlHelper, ModelMetadata metadata, InputType inputType, KeyValuePair<TIn, TOut> value, int index, string expression, IDictionary<string, object> htmlAttributes)
+        private static MvcHtmlString HiddenHelperIndexed<TIn, TOut>(HtmlHelper htmlHelper, ModelMetadata metadata, KeyValuePair<TIn, TOut> keyValuePair, int index, string expression, IDictionary<string, object> htmlAttributes)
+        {
+            return InputHelperIndexed(htmlHelper, metadata, InputType.Hidden, keyValuePair, index, expression, htmlAttributes);
+        }
+
+        private static MvcHtmlString InputHelperIndexed<TIn, TOut>(HtmlHelper htmlHelper, ModelMetadata metadata, InputType inputType, KeyValuePair<TIn, TOut> keyValuePair, int index, string expression, IDictionary<string, object> htmlAttributes)
         {
             var fullName = htmlHelper.ViewContext.ViewData.TemplateInfo.GetFullHtmlFieldName(expression);
             if (String.IsNullOrEmpty(fullName))
@@ -200,15 +205,10 @@
             }
 
             var strings = new List<string>(2);
-            strings.Add(InputHelperForKey(htmlHelper, metadata, expression, fullName, index, value.Key));
-            strings.Add(InputHelperForValue(htmlHelper, metadata, inputType, expression, htmlAttributes, fullName, index, value.Value));
+            strings.Add(InputHelperForKey(htmlHelper, metadata, expression, fullName, index, keyValuePair.Key));
+            strings.Add(InputHelperForValue(htmlHelper, metadata, inputType, expression, htmlAttributes, fullName, index, keyValuePair.Value));
 
             return new MvcHtmlString(string.Join("\n", strings));
-        }
-
-        private static MvcHtmlString InputHelper<TIn, TOut>(HtmlHelper htmlHelper, ModelMetadata metadata, InputType inputType, IDictionary<TIn, TOut> value, string expression, IDictionary<string, object> htmlAttributes)
-        {
-            return new MvcHtmlString(string.Join("\n", value.Select((kv, i) => InputHelperIndexed(htmlHelper, metadata, inputType, kv, i, expression, htmlAttributes).ToHtmlString())));
         }
 
         private static string InputHelperForKey<TIn>(HtmlHelper htmlHelper, ModelMetadata metadata, string expression, string fullName, int index, TIn key)
