@@ -6,4 +6,4 @@ DEL ".\build\*.nupkg"
 
 ".\tools\nuget\nuget.exe" update -self
 ".\tools\nuget\nuget.exe" pack ".\src\AspNetMvcSerialization\AspNetMvcDictionarySerialization.nuspec" -OutputDirectory ".\build"
-".\tools\nuget\nuget.exe" pack ".\src\AspNetMvcSerialization\AspNetMvcSerialization.csproj" -Build -OutputDirectory ".\build" -Properties Configuration=Release 
+".\tools\nuget\nuget.exe" pack ".\src\AspNetMvcSerialization\AspNetMvcSerialization.csproj" -Symbols -Build -OutputDirectory ".\build" -Properties Configuration=Release 
