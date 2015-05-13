@@ -202,7 +202,7 @@
 
             if (value.IsSimpleType())
             {
-                var inputHelperForValue = InputTagHelper(htmlHelper, metadata, inputType, expression, htmlAttributes, fullName, index, string.Empty, value.ToString());
+                var inputHelperForValue = InputTagHelper(htmlHelper, metadata, inputType, expression, htmlAttributes, fullName, index, string.Empty, value.ToString(), true);
 
                 return new MvcHtmlString(inputHelperForValue);
             }
@@ -211,7 +211,7 @@
 
             foreach (PropertyDescriptor prop in TypeDescriptor.GetProperties(value))
             {
-                var inputHelperForValue = InputTagHelper(htmlHelper, metadata, inputType, expression, htmlAttributes, fullName, index, prop.Name, prop.GetValue(value).ToString());
+                var inputHelperForValue = InputTagHelper(htmlHelper, metadata, inputType, expression, htmlAttributes, fullName, index, prop.Name, prop.GetValue(value).ToString(), false);
                 strings.Add(inputHelperForValue);
             }
 
@@ -223,15 +223,15 @@
             return new MvcHtmlString(string.Join("\n", value.Select((kv, i) => InputHelperIndexed(htmlHelper, metadata, inputType, kv, i, expression, htmlAttributes).ToHtmlString())));
         }
 
-        private static string InputTagHelper(HtmlHelper htmlHelper, ModelMetadata metadata, InputType inputType, string expression, IDictionary<string, object> htmlAttributes, string fullName, int index, string key, string val)
+        private static string InputTagHelper(HtmlHelper htmlHelper, ModelMetadata metadata, InputType inputType, string expression, IDictionary<string, object> htmlAttributes, string fullName, int index, string key, string val, bool isSimpleType)
         {
             var tagBuilder = new TagBuilder("input");
             tagBuilder.MergeAttributes(htmlAttributes);
             tagBuilder.MergeAttribute("type", HtmlHelper.GetInputTypeString(inputType));
-            tagBuilder.MergeAttribute("name", string.Format("{0}[{1}]{2}", fullName, index, string.IsNullOrEmpty(key) ? null : "." + key), true);
+            tagBuilder.MergeAttribute("name", GetElementName(fullName, index, key, isSimpleType), true);
             tagBuilder.MergeAttribute("value", val);
 
-            tagBuilder.GenerateId(string.Format("{0}_{1}{2}", fullName, index, string.IsNullOrEmpty(key) ? null : "_" + key));
+            tagBuilder.GenerateId(GetElementId(fullName, index, key));
             
             ModelState modelState;
 
@@ -249,6 +249,16 @@
             }
 
             return tagBuilder.ToString(TagRenderMode.SelfClosing);
+        }
+
+        private static string GetElementId(string fullName, int index, string key)
+        {
+            return string.Format("{0}_{1}{2}", fullName, index, string.IsNullOrEmpty(key) ? null : "_" + key);
+        }
+
+        private static string GetElementName(string fullName, int index, string key, bool isSimpleType)
+        {
+            return isSimpleType ? fullName : string.Format("{0}[{1}]{2}", fullName, index, string.IsNullOrEmpty(key) ? null : "." + key);
         }
 
         private static bool IsSimpleType(this object val)

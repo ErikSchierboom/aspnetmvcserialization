@@ -19,9 +19,9 @@ namespace AspNetMvcSerialization.Tests
                 var html = htmlHelper.Editor("Dict", enumerable);
 
                 // Assert
-                Assert.Equal(@"<input id=""Dict_0"" name=""Dict[0]"" type=""text"" value=""Lakers"" />" + "\n" +
-                             @"<input id=""Dict_1"" name=""Dict[1]"" type=""text"" value=""Celtics"" />" + "\n" +
-                             @"<input id=""Dict_2"" name=""Dict[2]"" type=""text"" value=""Bulls"" />",
+                Assert.Equal(@"<input id=""Dict_0"" name=""Dict"" type=""text"" value=""Lakers"" />" + "\n" +
+                             @"<input id=""Dict_1"" name=""Dict"" type=""text"" value=""Celtics"" />" + "\n" +
+                             @"<input id=""Dict_2"" name=""Dict"" type=""text"" value=""Bulls"" />",
                     html.ToHtmlString());
             }
 
@@ -56,9 +56,9 @@ namespace AspNetMvcSerialization.Tests
                 var html = htmlHelper.Editor("Dict", enumerable, new { @readonly = "readonly" });
 
                 // Assert
-                Assert.Equal(@"<input id=""Dict_0"" name=""Dict[0]"" readonly=""readonly"" type=""text"" value=""Lakers"" />" + "\n" +
-                             @"<input id=""Dict_1"" name=""Dict[1]"" readonly=""readonly"" type=""text"" value=""Celtics"" />" + "\n" +
-                             @"<input id=""Dict_2"" name=""Dict[2]"" readonly=""readonly"" type=""text"" value=""Bulls"" />",
+                Assert.Equal(@"<input id=""Dict_0"" name=""Dict"" readonly=""readonly"" type=""text"" value=""Lakers"" />" + "\n" +
+                             @"<input id=""Dict_1"" name=""Dict"" readonly=""readonly"" type=""text"" value=""Celtics"" />" + "\n" +
+                             @"<input id=""Dict_2"" name=""Dict"" readonly=""readonly"" type=""text"" value=""Bulls"" />",
                     html.ToHtmlString());
             }
 
@@ -73,9 +73,9 @@ namespace AspNetMvcSerialization.Tests
                 var html = htmlHelper.Editor("Dict", enumerable, new Dictionary<string, object> { { "disabled", "disabled" } });
 
                 // Assert
-                Assert.Equal(@"<input disabled=""disabled"" id=""Dict_0"" name=""Dict[0]"" type=""text"" value=""Lakers"" />" + "\n" +
-                             @"<input disabled=""disabled"" id=""Dict_1"" name=""Dict[1]"" type=""text"" value=""Celtics"" />" + "\n" +
-                             @"<input disabled=""disabled"" id=""Dict_2"" name=""Dict[2]"" type=""text"" value=""Bulls"" />",
+                Assert.Equal(@"<input disabled=""disabled"" id=""Dict_0"" name=""Dict"" type=""text"" value=""Lakers"" />" + "\n" +
+                             @"<input disabled=""disabled"" id=""Dict_1"" name=""Dict"" type=""text"" value=""Celtics"" />" + "\n" +
+                             @"<input disabled=""disabled"" id=""Dict_2"" name=""Dict"" type=""text"" value=""Bulls"" />",
                     html.ToHtmlString());
             }
 
@@ -90,9 +90,9 @@ namespace AspNetMvcSerialization.Tests
                 var html = htmlHelper.EditorFor(m => m.Dict);
 
                 // Assert
-                Assert.Equal(@"<input id=""Dict_0"" name=""Dict[0]"" type=""text"" value=""Lakers"" />" + "\n" +
-                             @"<input id=""Dict_1"" name=""Dict[1]"" type=""text"" value=""Celtics"" />" + "\n" +
-                             @"<input id=""Dict_2"" name=""Dict[2]"" type=""text"" value=""Bulls"" />",
+                Assert.Equal(@"<input id=""Dict_0"" name=""Dict"" type=""text"" value=""Lakers"" />" + "\n" +
+                             @"<input id=""Dict_1"" name=""Dict"" type=""text"" value=""Celtics"" />" + "\n" +
+                             @"<input id=""Dict_2"" name=""Dict"" type=""text"" value=""Bulls"" />",
                     html.ToHtmlString());
             }
 
@@ -127,9 +127,9 @@ namespace AspNetMvcSerialization.Tests
                 var html = htmlHelper.EditorFor(m => m.Dict, new { @readonly = "readonly" });
 
                 // Assert
-                Assert.Equal(@"<input id=""Dict_0"" name=""Dict[0]"" readonly=""readonly"" type=""text"" value=""Lakers"" />" + "\n" +
-                             @"<input id=""Dict_1"" name=""Dict[1]"" readonly=""readonly"" type=""text"" value=""Celtics"" />" + "\n" +
-                             @"<input id=""Dict_2"" name=""Dict[2]"" readonly=""readonly"" type=""text"" value=""Bulls"" />",
+                Assert.Equal(@"<input id=""Dict_0"" name=""Dict"" readonly=""readonly"" type=""text"" value=""Lakers"" />" + "\n" +
+                             @"<input id=""Dict_1"" name=""Dict"" readonly=""readonly"" type=""text"" value=""Celtics"" />" + "\n" +
+                             @"<input id=""Dict_2"" name=""Dict"" readonly=""readonly"" type=""text"" value=""Bulls"" />",
                     html.ToHtmlString());
             }
 
@@ -144,9 +144,9 @@ namespace AspNetMvcSerialization.Tests
                 var html = htmlHelper.EditorFor(m => m.Dict, new Dictionary<string, object> { { "disabled", "disabled" } });
 
                 // Assert
-                Assert.Equal(@"<input disabled=""disabled"" id=""Dict_0"" name=""Dict[0]"" type=""text"" value=""Lakers"" />" + "\n" +
-                             @"<input disabled=""disabled"" id=""Dict_1"" name=""Dict[1]"" type=""text"" value=""Celtics"" />" + "\n" +
-                             @"<input disabled=""disabled"" id=""Dict_2"" name=""Dict[2]"" type=""text"" value=""Bulls"" />",
+                Assert.Equal(@"<input disabled=""disabled"" id=""Dict_0"" name=""Dict"" type=""text"" value=""Lakers"" />" + "\n" +
+                             @"<input disabled=""disabled"" id=""Dict_1"" name=""Dict"" type=""text"" value=""Celtics"" />" + "\n" +
+                             @"<input disabled=""disabled"" id=""Dict_2"" name=""Dict"" type=""text"" value=""Bulls"" />",
                     html.ToHtmlString());
             }
 
@@ -161,9 +161,9 @@ namespace AspNetMvcSerialization.Tests
                 var html = htmlHelper.Hidden("Dict", enumerable);
 
                 // Assert
-                Assert.Equal(@"<input id=""Dict_0"" name=""Dict[0]"" type=""hidden"" value=""Lakers"" />" + "\n" +
-                             @"<input id=""Dict_1"" name=""Dict[1]"" type=""hidden"" value=""Celtics"" />" + "\n" +
-                             @"<input id=""Dict_2"" name=""Dict[2]"" type=""hidden"" value=""Bulls"" />",
+                Assert.Equal(@"<input id=""Dict_0"" name=""Dict"" type=""hidden"" value=""Lakers"" />" + "\n" +
+                             @"<input id=""Dict_1"" name=""Dict"" type=""hidden"" value=""Celtics"" />" + "\n" +
+                             @"<input id=""Dict_2"" name=""Dict"" type=""hidden"" value=""Bulls"" />",
                     html.ToHtmlString());
             }
 
@@ -198,9 +198,9 @@ namespace AspNetMvcSerialization.Tests
                 var html = htmlHelper.Hidden("Dict", enumerable, new { @readonly = "readonly" });
 
                 // Assert
-                Assert.Equal(@"<input id=""Dict_0"" name=""Dict[0]"" readonly=""readonly"" type=""hidden"" value=""Lakers"" />" + "\n" +
-                             @"<input id=""Dict_1"" name=""Dict[1]"" readonly=""readonly"" type=""hidden"" value=""Celtics"" />" + "\n" +
-                             @"<input id=""Dict_2"" name=""Dict[2]"" readonly=""readonly"" type=""hidden"" value=""Bulls"" />",
+                Assert.Equal(@"<input id=""Dict_0"" name=""Dict"" readonly=""readonly"" type=""hidden"" value=""Lakers"" />" + "\n" +
+                             @"<input id=""Dict_1"" name=""Dict"" readonly=""readonly"" type=""hidden"" value=""Celtics"" />" + "\n" +
+                             @"<input id=""Dict_2"" name=""Dict"" readonly=""readonly"" type=""hidden"" value=""Bulls"" />",
                     html.ToHtmlString());
             }
 
@@ -215,9 +215,9 @@ namespace AspNetMvcSerialization.Tests
                 var html = htmlHelper.Hidden("Dict", enumerable, new Dictionary<string, object> { { "disabled", "disabled" } });
 
                 // Assert
-                Assert.Equal(@"<input disabled=""disabled"" id=""Dict_0"" name=""Dict[0]"" type=""hidden"" value=""Lakers"" />" + "\n" +
-                             @"<input disabled=""disabled"" id=""Dict_1"" name=""Dict[1]"" type=""hidden"" value=""Celtics"" />" + "\n" +
-                             @"<input disabled=""disabled"" id=""Dict_2"" name=""Dict[2]"" type=""hidden"" value=""Bulls"" />",
+                Assert.Equal(@"<input disabled=""disabled"" id=""Dict_0"" name=""Dict"" type=""hidden"" value=""Lakers"" />" + "\n" +
+                             @"<input disabled=""disabled"" id=""Dict_1"" name=""Dict"" type=""hidden"" value=""Celtics"" />" + "\n" +
+                             @"<input disabled=""disabled"" id=""Dict_2"" name=""Dict"" type=""hidden"" value=""Bulls"" />",
                     html.ToHtmlString());
             }
 
@@ -232,9 +232,9 @@ namespace AspNetMvcSerialization.Tests
                 var html = htmlHelper.HiddenFor(m => m.Dict);
 
                 // Assert
-                Assert.Equal(@"<input id=""Dict_0"" name=""Dict[0]"" type=""hidden"" value=""Lakers"" />" + "\n" +
-                             @"<input id=""Dict_1"" name=""Dict[1]"" type=""hidden"" value=""Celtics"" />" + "\n" +
-                             @"<input id=""Dict_2"" name=""Dict[2]"" type=""hidden"" value=""Bulls"" />",
+                Assert.Equal(@"<input id=""Dict_0"" name=""Dict"" type=""hidden"" value=""Lakers"" />" + "\n" +
+                             @"<input id=""Dict_1"" name=""Dict"" type=""hidden"" value=""Celtics"" />" + "\n" +
+                             @"<input id=""Dict_2"" name=""Dict"" type=""hidden"" value=""Bulls"" />",
                     html.ToHtmlString());
             }
 
@@ -269,9 +269,9 @@ namespace AspNetMvcSerialization.Tests
                 var html = htmlHelper.HiddenFor(m => m.Dict, new { @readonly = "readonly" });
 
                 // Assert
-                Assert.Equal(@"<input id=""Dict_0"" name=""Dict[0]"" readonly=""readonly"" type=""hidden"" value=""Lakers"" />" + "\n" +
-                             @"<input id=""Dict_1"" name=""Dict[1]"" readonly=""readonly"" type=""hidden"" value=""Celtics"" />" + "\n" +
-                             @"<input id=""Dict_2"" name=""Dict[2]"" readonly=""readonly"" type=""hidden"" value=""Bulls"" />",
+                Assert.Equal(@"<input id=""Dict_0"" name=""Dict"" readonly=""readonly"" type=""hidden"" value=""Lakers"" />" + "\n" +
+                             @"<input id=""Dict_1"" name=""Dict"" readonly=""readonly"" type=""hidden"" value=""Celtics"" />" + "\n" +
+                             @"<input id=""Dict_2"" name=""Dict"" readonly=""readonly"" type=""hidden"" value=""Bulls"" />",
                     html.ToHtmlString());
             }
 
@@ -286,9 +286,9 @@ namespace AspNetMvcSerialization.Tests
                 var html = htmlHelper.HiddenFor(m => m.Dict, new Dictionary<string, object> { { "disabled", "disabled" } });
 
                 // Assert
-                Assert.Equal(@"<input disabled=""disabled"" id=""Dict_0"" name=""Dict[0]"" type=""hidden"" value=""Lakers"" />" + "\n" +
-                             @"<input disabled=""disabled"" id=""Dict_1"" name=""Dict[1]"" type=""hidden"" value=""Celtics"" />" + "\n" +
-                             @"<input disabled=""disabled"" id=""Dict_2"" name=""Dict[2]"" type=""hidden"" value=""Bulls"" />",
+                Assert.Equal(@"<input disabled=""disabled"" id=""Dict_0"" name=""Dict"" type=""hidden"" value=""Lakers"" />" + "\n" +
+                             @"<input disabled=""disabled"" id=""Dict_1"" name=""Dict"" type=""hidden"" value=""Celtics"" />" + "\n" +
+                             @"<input disabled=""disabled"" id=""Dict_2"" name=""Dict"" type=""hidden"" value=""Bulls"" />",
                     html.ToHtmlString());
             }
         }
@@ -306,7 +306,7 @@ namespace AspNetMvcSerialization.Tests
                 var html = htmlHelper.EditorIndexed("Dict", enumerable.ElementAt(1), 1);
 
                 // Assert
-                Assert.Equal(@"<input id=""Dict_1"" name=""Dict[1]"" type=""text"" value=""Celtics"" />", html.ToHtmlString());
+                Assert.Equal(@"<input id=""Dict_1"" name=""Dict"" type=""text"" value=""Celtics"" />", html.ToHtmlString());
             }
 
             [Fact]
@@ -336,7 +336,7 @@ namespace AspNetMvcSerialization.Tests
                 var html = htmlHelper.EditorIndexed("Dict", enumerable.ElementAt(1), 1, new { @readonly = "readonly" });
 
                 // Assert
-                Assert.Equal(@"<input id=""Dict_1"" name=""Dict[1]"" readonly=""readonly"" type=""text"" value=""Celtics"" />", html.ToHtmlString());
+                Assert.Equal(@"<input id=""Dict_1"" name=""Dict"" readonly=""readonly"" type=""text"" value=""Celtics"" />", html.ToHtmlString());
             }
 
             [Fact]
@@ -350,7 +350,7 @@ namespace AspNetMvcSerialization.Tests
                 var html = htmlHelper.EditorIndexed("Dict", enumerable.ElementAt(1), 1, new Dictionary<string, object> { { "disabled", "disabled" } });
 
                 // Assert
-                Assert.Equal(@"<input disabled=""disabled"" id=""Dict_1"" name=""Dict[1]"" type=""text"" value=""Celtics"" />", html.ToHtmlString());
+                Assert.Equal(@"<input disabled=""disabled"" id=""Dict_1"" name=""Dict"" type=""text"" value=""Celtics"" />", html.ToHtmlString());
             }
 
             [Fact]
@@ -364,7 +364,7 @@ namespace AspNetMvcSerialization.Tests
                 var html = htmlHelper.EditorForIndexed(m => m.Dict, 1);
 
                 // Assert
-                Assert.Equal(@"<input id=""Dict_1"" name=""Dict[1]"" type=""text"" value=""Celtics"" />", html.ToHtmlString());
+                Assert.Equal(@"<input id=""Dict_1"" name=""Dict"" type=""text"" value=""Celtics"" />", html.ToHtmlString());
             }
 
             [Fact]
@@ -394,7 +394,7 @@ namespace AspNetMvcSerialization.Tests
                 var html = htmlHelper.EditorForIndexed(m => m.Dict, 1, new { @readonly = "readonly" });
 
                 // Assert
-                Assert.Equal(@"<input id=""Dict_1"" name=""Dict[1]"" readonly=""readonly"" type=""text"" value=""Celtics"" />", html.ToHtmlString());
+                Assert.Equal(@"<input id=""Dict_1"" name=""Dict"" readonly=""readonly"" type=""text"" value=""Celtics"" />", html.ToHtmlString());
             }
 
             [Fact]
@@ -408,7 +408,7 @@ namespace AspNetMvcSerialization.Tests
                 var html = htmlHelper.EditorForIndexed(m => m.Dict, 1, new Dictionary<string, object> { { "disabled", "disabled" } });
 
                 // Assert
-                Assert.Equal(@"<input disabled=""disabled"" id=""Dict_1"" name=""Dict[1]"" type=""text"" value=""Celtics"" />", html.ToHtmlString());
+                Assert.Equal(@"<input disabled=""disabled"" id=""Dict_1"" name=""Dict"" type=""text"" value=""Celtics"" />", html.ToHtmlString());
             }
 
             [Fact]
@@ -422,7 +422,7 @@ namespace AspNetMvcSerialization.Tests
                 var html = htmlHelper.HiddenIndexed("Dict", enumerable.ElementAt(1), 1);
 
                 // Assert
-                Assert.Equal(@"<input id=""Dict_1"" name=""Dict[1]"" type=""hidden"" value=""Celtics"" />", html.ToHtmlString());
+                Assert.Equal(@"<input id=""Dict_1"" name=""Dict"" type=""hidden"" value=""Celtics"" />", html.ToHtmlString());
             }
 
             [Fact]
@@ -452,7 +452,7 @@ namespace AspNetMvcSerialization.Tests
                 var html = htmlHelper.HiddenIndexed("Dict", enumerable.ElementAt(1), 1, (object)new { @readonly = "readonly" });
 
                 // Assert
-                Assert.Equal(@"<input id=""Dict_1"" name=""Dict[1]"" readonly=""readonly"" type=""hidden"" value=""Celtics"" />", html.ToHtmlString());
+                Assert.Equal(@"<input id=""Dict_1"" name=""Dict"" readonly=""readonly"" type=""hidden"" value=""Celtics"" />", html.ToHtmlString());
             }
 
             [Fact]
@@ -466,7 +466,7 @@ namespace AspNetMvcSerialization.Tests
                 var html = htmlHelper.HiddenIndexed("Dict", enumerable.ElementAt(1), 1, new Dictionary<string, object> { { "disabled", "disabled" } });
 
                 // Assert
-                Assert.Equal(@"<input disabled=""disabled"" id=""Dict_1"" name=""Dict[1]"" type=""hidden"" value=""Celtics"" />", html.ToHtmlString());
+                Assert.Equal(@"<input disabled=""disabled"" id=""Dict_1"" name=""Dict"" type=""hidden"" value=""Celtics"" />", html.ToHtmlString());
             }
 
             [Fact]
@@ -480,7 +480,7 @@ namespace AspNetMvcSerialization.Tests
                 var html = htmlHelper.HiddenForIndexed(m => m.Dict, 1);
 
                 // Assert
-                Assert.Equal(@"<input id=""Dict_1"" name=""Dict[1]"" type=""hidden"" value=""Celtics"" />", html.ToHtmlString());
+                Assert.Equal(@"<input id=""Dict_1"" name=""Dict"" type=""hidden"" value=""Celtics"" />", html.ToHtmlString());
             }
 
             [Fact]
@@ -510,7 +510,7 @@ namespace AspNetMvcSerialization.Tests
                 var html = htmlHelper.HiddenForIndexed(m => m.Dict, 1, new { @readonly = "readonly" });
 
                 // Assert
-                Assert.Equal(@"<input id=""Dict_1"" name=""Dict[1]"" readonly=""readonly"" type=""hidden"" value=""Celtics"" />", html.ToHtmlString());
+                Assert.Equal(@"<input id=""Dict_1"" name=""Dict"" readonly=""readonly"" type=""hidden"" value=""Celtics"" />", html.ToHtmlString());
             }
 
             [Fact]
@@ -524,7 +524,7 @@ namespace AspNetMvcSerialization.Tests
                 var html = htmlHelper.HiddenForIndexed(m => m.Dict, 1, new Dictionary<string, object> { { "disabled", "disabled" } });
 
                 // Assert
-                Assert.Equal(@"<input disabled=""disabled"" id=""Dict_1"" name=""Dict[1]"" type=""hidden"" value=""Celtics"" />", html.ToHtmlString());
+                Assert.Equal(@"<input disabled=""disabled"" id=""Dict_1"" name=""Dict"" type=""hidden"" value=""Celtics"" />", html.ToHtmlString());
             }
         }
 

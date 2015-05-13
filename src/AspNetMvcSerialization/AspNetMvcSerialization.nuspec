@@ -10,7 +10,7 @@
     <projectUrl>https://github.com/ErikSchierboom/aspnetmvcdictionaryserialization</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
-    <releaseNotes></releaseNotes>
+    <releaseNotes>Fixed IEnumerable simple types bug</releaseNotes>
     <copyright>Copyright 2014</copyright>
     <tags>asp.net mvc dictionary serialization</tags>
   </metadata>
