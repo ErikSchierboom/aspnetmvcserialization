@@ -1,6 +1,7 @@
 # ASP.NET MVC serialization
 
 [![Build status](https://ci.appveyor.com/api/projects/status/d1e0slk8udkym49k)](https://ci.appveyor.com/project/ErikSchierboom/aspnetmvcdictionaryserialization)
+[![Coverage Status](https://coveralls.io/repos/ErikSchierboom/aspnetmvcserialization/badge.svg?branch=master&service=github)](https://coveralls.io/github/ErikSchierboom/aspnetmvcserialization?branch=master)
 
 ## Introduction
 
