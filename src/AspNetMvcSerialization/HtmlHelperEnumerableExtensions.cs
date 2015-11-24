@@ -92,12 +92,12 @@
                 htmlAttributes);
         }
 
-        private static MvcHtmlString EditorHelperIndexed<TIn>(HtmlHelper htmlHelper, ModelMetadata metadata, TIn value, int index, string expression, IDictionary<string, object> htmlAttributes)
+        internal static MvcHtmlString EditorHelperIndexed<TIn>(HtmlHelper htmlHelper, ModelMetadata metadata, TIn value, int index, string expression, IDictionary<string, object> htmlAttributes)
         {
             return InputHelperIndexed(htmlHelper, metadata, InputType.Text, value, index, expression, htmlAttributes);
         }
 
-        private static MvcHtmlString EditorHelper<TIn>(HtmlHelper htmlHelper, ModelMetadata metadata, IEnumerable<TIn> value, string expression, IDictionary<string, object> htmlAttributes)
+        internal static MvcHtmlString EditorHelper<TIn>(HtmlHelper htmlHelper, ModelMetadata metadata, IEnumerable<TIn> value, string expression, IDictionary<string, object> htmlAttributes)
         {
             return InputHelper(htmlHelper, metadata, InputType.Text, value, expression, htmlAttributes);
         }
@@ -182,12 +182,12 @@
                 htmlAttributes);
         }
 
-        private static MvcHtmlString HiddenHelper<TIn>(HtmlHelper htmlHelper, ModelMetadata metadata, IEnumerable<TIn> value, string expression, IDictionary<string, object> htmlAttributes)
+        internal static MvcHtmlString HiddenHelper<TIn>(HtmlHelper htmlHelper, ModelMetadata metadata, IEnumerable<TIn> value, string expression, IDictionary<string, object> htmlAttributes)
         {
             return InputHelper(htmlHelper, metadata, InputType.Hidden, value, expression, htmlAttributes);
         }
 
-        private static MvcHtmlString HiddenHelperIndexed<TIn>(HtmlHelper htmlHelper, ModelMetadata metadata, TIn value, int index, string expression, IDictionary<string, object> htmlAttributes)
+        internal static MvcHtmlString HiddenHelperIndexed<TIn>(HtmlHelper htmlHelper, ModelMetadata metadata, TIn value, int index, string expression, IDictionary<string, object> htmlAttributes)
         {
             return InputHelperIndexed(htmlHelper, metadata, InputType.Hidden, value, index, expression, htmlAttributes);
         }

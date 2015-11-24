@@ -6,14 +6,16 @@
     <title>@ViewBag.Title</title>
     <link rel="stylesheet" href="~/Content/Site.css" />
 </head>
-    <body>
-        <ul>
-            <li>
-                @Html.ActionLink("EditorFor", "Index", "Home")
-                @Html.ActionLink("HiddenFor", "Hidden", "Home")
-            </li>
-        </ul>
+<body>
+    <ul>
+        <li>
+            @Html.ActionLink("Dictionary", "Index", "Dictionary")
+            @Html.ActionLink("Enumerable", "Index", "Enumerable")
+            @Html.ActionLink("Collection", "Index", "Collection")
+            @Html.ActionLink("List", "Index", "List")
+        </li>
+    </ul>
 
-        @RenderBody()
-    </body>
+    @RenderBody()
+</body>
 </html>

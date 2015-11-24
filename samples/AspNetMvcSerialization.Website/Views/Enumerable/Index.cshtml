@@ -1,0 +1,36 @@
+﻿@model AspNetMvcSerialization.Website.Models.EnumerableModel
+@using AspNetMvcSerialization;
+
+@* We need to import this namespace as otherwise our custom IEnumerable<string> HtmlHelper overload would not be called *@
+
+@{
+    ViewBag.Title = "IEnumerable<string> serialization";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@if (IsPost)
+{
+    <p>The values below were de-serialized from the submitted form.</p>
+}
+else
+{
+    <p>Click on submit to submit the form and see if the enumerable is correctly de-serialized.</p>
+}
+
+@using (Html.BeginForm())
+{
+    // Here we will be serializing the dictionary using our custom HtmlHelper. By correctly serializing the
+    // enumerable into the correct format (see http://www.hanselman.com/blog/ASPNETWireFormatForModelBindingToArraysListsCollectionsDictionaries.aspx)
+    // the default model binder will be able to correct de-serialize the submitted enumerable
+    @Html.Editor(Html.NameFor(m => m.Enumerable).ToString(), Model.Enumerable)
+    
+    <input type="submit" value="Submit" />
+}
+
+<ul>
+    <li>
+        @Html.ActionLink("EditorFor", "Index", "Enumerable")
+        @Html.ActionLink("HiddenFor", "Hidden", "Enumerable")
+    </li>
+</ul>

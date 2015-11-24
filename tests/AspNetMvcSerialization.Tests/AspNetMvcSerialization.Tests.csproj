@@ -55,8 +55,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="HtmlHelperCollectionExtensionsTests.cs" />
     <Compile Include="HtmlHelperDictionaryExtensionsTests.cs" />
     <Compile Include="HtmlHelperEnumerableExtensionsTests.cs" />
+    <Compile Include="HtmlHelperListExtensionsTests.cs" />
     <Compile Include="MvcHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RouteValueDictionaryExtensionsTests.cs">

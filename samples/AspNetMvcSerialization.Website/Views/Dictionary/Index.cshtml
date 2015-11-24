@@ -1,5 +1,5 @@
 ﻿@model AspNetMvcSerialization.Website.Models.DictionaryModel
-@using AspNetMvcDictionarySerialization;
+@using AspNetMvcSerialization;
 
 @* We need to import this namespace as otherwise our custom IDictionary<string, string> HtmlHelper overload would not be called *@
 
@@ -23,7 +23,15 @@ else
     // Here we will be serializing the dictionary using our custom HtmlHelper. By correctly serializing the
     // dictionary into the correct format (see http://www.hanselman.com/blog/ASPNETWireFormatForModelBindingToArraysListsCollectionsDictionaries.aspx)
     // the default model binder will be able to correct de-serialize the submitted dictionary
-    @Html.Editor("Dictionary", Model.Dictionary)
+    @Html.Editor(Html.NameFor(m => m.Dictionary).ToString(), Model.Dictionary)
     
     <input type="submit" value="Submit" />
 }
+
+
+<ul>
+    <li>
+        @Html.ActionLink("EditorFor", "Index", "Dictionary")
+        @Html.ActionLink("HiddenFor", "Hidden", "Dictionary")
+    </li>
+</ul>

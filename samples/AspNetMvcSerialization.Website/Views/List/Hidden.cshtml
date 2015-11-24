@@ -1,0 +1,52 @@
+﻿@model AspNetMvcSerialization.Website.Models.ListModel
+@using AspNetMvcSerialization;
+
+@* We need to import this namespace as otherwise our custom ISet<string> HtmlHelper overload would not be called *@
+
+@{
+    ViewBag.Title = "ISet<string> serialization as hidden field";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@if (IsPost)
+{
+    <p>The values below were de-serialized from the submitted form.</p>
+}
+else
+{
+    <p>Click on submit to submit the form and see if the list is correctly de-serialized.</p>
+}
+
+<table>
+    <thead>
+        <tr>
+            <th>Value</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var str in Model.List)
+        {
+            <tr>
+                <td>@str</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@using (Html.BeginForm())
+{
+    // Here we will be serializing the dictionary using our custom HtmlHelper. By correctly serializing the
+    // list into the correct format (see http://www.hanselman.com/blog/ASPNETWireFormatForModelBindingToArraysSetsCollectionsDictionaries.aspx)
+    // the default model binder will be able to correct de-serialize the submitted list
+    @Html.HiddenFor(m => m.List)
+    
+    <input type="submit" value="Submit" />
+}
+
+<ul>
+    <li>
+        @Html.ActionLink("EditorFor", "Index", "List")
+        @Html.ActionLink("HiddenFor", "Hidden", "List")
+    </li>
+</ul>

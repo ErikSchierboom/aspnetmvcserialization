@@ -1,5 +1,5 @@
 ﻿@model AspNetMvcSerialization.Website.Models.DictionaryModel
-@using AspNetMvcDictionarySerialization;
+@using AspNetMvcSerialization;
 
 @* We need to import this namespace as otherwise our custom IDictionary<string, string> HtmlHelper overload would not be called *@
 
@@ -45,3 +45,10 @@ else
     
     <input type="submit" value="Submit" />
 }
+
+<ul>
+    <li>
+        @Html.ActionLink("EditorFor", "Index", "Dictionary")
+        @Html.ActionLink("HiddenFor", "Hidden", "Dictionary")
+    </li>
+</ul>

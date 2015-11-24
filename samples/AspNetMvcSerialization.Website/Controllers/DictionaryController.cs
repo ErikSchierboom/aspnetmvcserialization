@@ -4,7 +4,7 @@
     using System.Web.Mvc;
     using Models;
 
-    public class HomeController : Controller
+    public class DictionaryController : Controller
     {
         [HttpGet]
         public ActionResult Index()
